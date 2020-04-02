@@ -24,7 +24,7 @@ UserSchema.statics.signup = async function(username, password){
     const user = await User.create({username, password: hashedPassword});
 
     if (user.save()){
-        user.token = "Bearer " + jwt.sign({_id: user._id}, sercretOrKey);
+        user.token = "Bearer " + jwt.sign({_id: user._id}, secretOrKey);
         user.loggedIn = true;
         return user;
     }
