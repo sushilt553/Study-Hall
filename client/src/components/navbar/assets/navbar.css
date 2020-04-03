@@ -4,6 +4,8 @@
     justify-content: space-between;
     background-color: #252a37;
     padding: 10px 20px 10px 10px;
+    position: fixed;
+    width: 100%;
 }
 
 .logo {
@@ -17,6 +19,7 @@
 
 .signup-button {
     color: #ed851e;
+    margin-right: 30px;
 }
 
 .login-button:hover {
