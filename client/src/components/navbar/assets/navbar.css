@@ -1,0 +1,28 @@
+.navbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #252a37;
+    padding: 10px 20px 10px 10px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.login-button {
+    margin-right: 40px;
+    color: #ccddee;
+}
+
+.signup-button {
+    color: #ed851e;
+}
+
+.login-button:hover {
+    color: #28a5dc;
+}
+
+.signup-button:hover {
+    color: #28a5dc;
+}
