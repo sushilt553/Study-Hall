@@ -29,3 +29,7 @@
 .signup-button:hover {
     color: #28a5dc;
 }
+
+.logout-button {
+    margin-right: 30px;
+}

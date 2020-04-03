@@ -4,12 +4,16 @@ import Rise from "./assets/images/rise_to_your_challenge.jpeg";
 import Floor from "./assets/images/floor_study.jpeg";
 import Desktop from "./assets/images/desktop_study.png";
 import Tree from "./assets/images/info_tree.png";
+import Header from "./assets/images/header.png";
 
 export default () => {
   return (
     <>
       <div className="splash-container">
-        <div className="header-img"></div>
+        <div className=""></div>
+        <div className="header-img">
+          <img src={Header} alt="header" />
+        </div>
         <div className="panel-container">
           <div className="img1-container">
             <img src={Rise} alt="rise" />
