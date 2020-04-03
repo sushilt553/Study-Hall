@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import SplashPage from './pages/SplashPage';
 import Navbar from './pages/Navbar';
 import './App.css';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <ProtectedRoute path={`/home`} component={HomePage} />
           <AuthRoute path={`/signup`} component={Signup} />         
           <AuthRoute path={`/login`} component={Login} />         
           <Route exact path={`/`} component={SplashPage} />

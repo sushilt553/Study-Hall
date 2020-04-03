@@ -30,6 +30,27 @@ export const FETCH_CATEGORY = gql`
     }
 `
 
+export const FETCH_ALL_QUESTIONS = gql`
+    query AllQuestions {
+        allQuestions {
+            _id
+            title
+            category {
+                _id
+                name
+            }
+            answer {
+                _id
+                title
+            }
+            options {
+                _id
+                title
+            }
+        }
+    }
+`
+
 export const CURRENT_USER = gql`
     query CurrentUser {
         me {
