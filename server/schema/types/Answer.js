@@ -5,26 +5,9 @@ const typeDefs = `
         _id: ID!
         title: String!
     }
-    extend type Query {
-        _empty: String
-    }
-    extend type Mutation {
-        _empty: String
-    }
 `
 
-const resolvers = {
-    Query: {
-        _empty(_, __) {
-            return ""
-        }
-    },
-    Mutation: {
-        _empty(_, __) {
-            return ""
-        }
-    }
-}
+const resolvers = {}
 
 module.exports = {
     typeDefs,
