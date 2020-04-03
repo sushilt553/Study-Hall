@@ -5,11 +5,13 @@ const typeDefs = `
     type User {
         _id: ID!
         username: String!
+        masteryPoints: Int
     }
 
     type UserCredentials {
         _id: ID!
         username: String!
+        masteryPoints: Int
         token: String
         loggedIn: Boolean
     }

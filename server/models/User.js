@@ -15,6 +15,10 @@ const UserSchema = new Schema({
         required: true,
         min: 7,
         max: 20
+    },
+    masteryPoints: {
+        type: Number,
+        default: 0
     }
 })
 
