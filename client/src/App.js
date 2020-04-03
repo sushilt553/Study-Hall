@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import AuthRoute from './components/util/AuthRoute';
-// import ProtectedRoute from './components/util/ProtectedRoute';
+import ProtectedRoute from './components/util/ProtectedRoute';
 import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
