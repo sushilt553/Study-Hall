@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
+import {useHistory} from 'react-router-dom';
 import { LOGIN_USER } from "../../graphql/mutations";
 import { IS_LOGGED_IN, CURRENT_USER } from "../../graphql/queries";
 
 export default () => {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,12 +20,14 @@ export default () => {
         setErrorMessage("Invalid username or password");
       } else {
         localStorage.setItem("token", login.token);
+        cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
+        history.push("/home");
       }
     },
     onError() {
       setErrorMessage("Login unsuccessful");
     },
-    refetchQueries: [{ query: IS_LOGGED_IN }, { query: CURRENT_USER }]
+    refetchQueries: [{ query: CURRENT_USER }],
   });
 
   return (
