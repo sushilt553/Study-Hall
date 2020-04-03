@@ -9,7 +9,7 @@ export default ({ component: Component, path, exact }) => {
     if (loading || error || !data){ 
         return null
     }else if (data.isLoggedIn) {
-        return <Redirect to={"/"} />
+        return <Redirect to={"/home"} />
     }else{
         return <Route path={path} component={Component} exact={exact} />
     }
