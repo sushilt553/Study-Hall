@@ -1,4 +1,5 @@
 import { ApolloClient } from "apollo-client";
+import {ApolloLink} from 'apollo-link';
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { onError } from "apollo-link-error";
@@ -46,7 +47,7 @@ const createClient = async() => {
 
     const client = new ApolloClient({
         cache,
-        link: authLink.concat(httpLink, errorLink),
+        link: ApolloLink.from([authLink.concat(errorLink), httpLink]),
         typeDefs,
         resolvers
     });

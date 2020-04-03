@@ -12,11 +12,11 @@ const QuestionSchema = new Schema({
         ref: 'Category',
         required: true
     },
-    options: {
-        type: [Schema.Types.ObjectId],
+    options: [{
+        type: Schema.Types.ObjectId,
         ref: 'Option',
         required: true
-    },
+    }],
     answer: {
         type: Schema.Types.ObjectId,
         ref: 'Answer',
