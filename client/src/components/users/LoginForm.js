@@ -32,30 +32,39 @@ export default () => {
 
   return (
     <>
+      <h1 className="form-title">Log In</h1>
       {errorMessage}
-      <form
+      <form className="login-form"
         onSubmit={e => {
           e.preventDefault();
           login();
         }}
       >
-        <label>
-          Username:
+
+        <div>
+            <input
+              className="username-input"
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={e => setUsername(e.target.value)}
+            />
+        </div>
+
+        <div>
           <input
-            type="text"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
+            className="password-input"
             type="password"
             value={password}
+            placeholder = "Password"
             onChange={e => setPassword(e.target.value)}
           />
-        </label>
-        <input type="submit" value="Login" />
+        </div>
+
+        <div>
+          <input className="sbm-btn" type="submit" value="Log In"/>
+        </div>
+
       </form>
     </>
   );

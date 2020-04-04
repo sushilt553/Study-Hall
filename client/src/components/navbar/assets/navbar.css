@@ -15,11 +15,13 @@
 .login-button {
     margin-right: 40px;
     color: #ccddee;
+    outline: none;
 }
 
 .signup-button {
     color: #ed851e;
     margin-right: 30px;
+    outline: none;
 }
 
 .login-button:hover {
