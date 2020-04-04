@@ -41,10 +41,13 @@ const seedDatabase = async() => {
             let option = optionsArr[Math.floor(Math.random() * optionsArr.length)];
             options.push(option);
         }
-        let answer = options[Math.floor(Math.random() * options.length)];
+        let answerId = options[Math.floor(Math.random() * options.length)];
+        const option = await Option.findById(answerId);
+        const answer = new Answer({title: option.title})
+        await answer.save();
         let category = categoriesArr[Math.floor(Math.random() * categoriesArr.length)];
         let title = Faker.Lorem.sentence()
-        const question = new Question({title, answer, category, options});
+        const question = new Question({title, answer: answer._id, category, options});
         await question.save();
     }
     mongoose.connection.close();
