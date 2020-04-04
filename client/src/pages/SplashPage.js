@@ -4,21 +4,22 @@ import Rise from "./assets/images/rise_to_your_challenge.jpeg";
 import Floor from "./assets/images/floor_study.jpeg";
 import Desktop from "./assets/images/desktop_study.png";
 import Tree from "./assets/images/info_tree.png";
-import Header from "./assets/images/header.png";
+import Header from "./assets/images/learning_header2.jpeg";
 
 export default () => {
   return (
     <>
       <div className="splash-container">
-        <div className=""></div>
-        <div className="header-img">
-          <img src={Header} alt="header" />
+        <div className="header-img-container">
+          <div className="header-img">
+            <img src={Header} alt="header" />
+          </div>
         </div>
         <div className="panel-container">
-          <div className="img1-container">
+          <div className="img-container">
             <img src={Rise} alt="rise" />
           </div>
-          <div className="panel1-details">
+          <div className="panel-details">
             <h3 className="panel-title">
               Study Less, Remember More, {`&`} Improve Test Scores
             </h3>
@@ -30,7 +31,7 @@ export default () => {
           </div>
         </div>
         <div className="panel-container">
-          <div className="panel2-details">
+          <div className="panel-details">
             <h3 className="panel-title">Social Learning for Your Class</h3>
             <p className="panel-paragraph">
               Are you an educator looking for a simple collaborative, adaptive
@@ -43,15 +44,15 @@ export default () => {
               earned.
             </p>
           </div>
-          <div className="img2-container">
+          <div className="img-container">
             <img src={Floor} alt="floor" />
           </div>
         </div>
         <div className="panel-container">
-          <div className="img3-container">
+          <div className="img-container">
             <img src={Desktop} alt="Desktop" />
           </div>
-          <div className="panel3-details">
+          <div className="panel-details">
             <h3 className="panel-title">
               Perfect for Online Employee Training
             </h3>
@@ -68,7 +69,7 @@ export default () => {
           </div>
         </div>
         <div className="panel-container">
-          <div className="panel4-details">
+          <div className="panel-details">
             <h3 className="panel-title">Proven Cognitive Science</h3>
             <p className="panel-paragraph">
               Study Hall works by guaranteeing that each concept is repeated in
@@ -88,7 +89,7 @@ export default () => {
               prefrontal cortex.
             </p>
           </div>
-          <div className="img4-container">
+          <div className="img-container">
             <img src={Tree} alt="tree" />
           </div>
         </div>

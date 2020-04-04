@@ -1,11 +1,17 @@
 .splash-container {
-  padding-top: 100px;
+  /* padding-top: 100px; */
+  display: flex;
+  flex-direction: column;
   background: white;
 }
 
+.header-img-container {
+  
+}
+
 .header-img {
-  
-  
+  /* line-height: 1.4; */
+  /* padding: 50px 0px 50px 0px; */
 }
 
 .panel-container {
@@ -16,12 +22,13 @@
 
 }
 
-.img1-container {
-  width: 50%;
+.img-container {
+  width: 50vw;
 }
 
-.panel1-details {
-  width: 50%;
+.panel-details {
+  width: 50vw;
+  font-size: 18px;
 }
 
 .panel-title {
@@ -31,28 +38,4 @@
 .panel-paragraph {
   margin: 0px 20px 20px 20px;
 
-}
-
-.panel2-details {
-  width: 50%;
-}
-
-.img2-container {
-  width: 50%;
-}
-
-.img3-container {
-  width: 50%;
-}
-
-.panel3-details {
-  width: 50%;
-}
-
-.panel4-details {
-  width: 50%;
-}
-
-.img4-container {
-  width: 50%;
 }
