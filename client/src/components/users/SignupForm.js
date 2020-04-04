@@ -3,7 +3,9 @@ import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP_USER } from '../../graphql/mutations';
 import { IS_LOGGED_IN, CURRENT_USER } from '../../graphql/queries';
 import signupPic from './images/signup.jpg';
+import signupPic0 from './images/signup(0).jpg';
 import signupPic1 from './images/signup(1).jpg';
+import signupPic2 from './images/signup(2).jpg';
 
 export default () => {
     const [username, setUsername] = useState("");
@@ -34,8 +36,7 @@ export default () => {
         <div className="signup-div">
 
             <div className="signup-left-side">
-                <img className="signup-img" src={signupPic1} />
-                {/* <img className="signup-img" src={signupPic} /> */}
+                <img className="signup-img" src={signupPic2} />
             </div>
 
             <div className="signup-form-div">
