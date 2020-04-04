@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP_USER } from '../../graphql/mutations';
 import { IS_LOGGED_IN, CURRENT_USER } from '../../graphql/queries';
+import signupPic from './images/signup.jpg';
+import signupPic1 from './images/signup(1).jpg';
 
 export default () => {
     const [username, setUsername] = useState("");
@@ -29,20 +31,51 @@ export default () => {
     )
 
     return (
-        <>
-            {errorMessage}
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                signup();
-            }}>
-                <label>Username:
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
-                </label>
-                <label>Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                </label>
-                <input type="submit" value="Signup"/>
-            </form>
-        </>
+        <div className="signup-div">
+
+            <div className="signup-left-side">
+                <img className="signup-img" src={signupPic1} />
+                {/* <img className="signup-img" src={signupPic} /> */}
+            </div>
+
+            <div className="signup-form-div">
+                <h1 className="form-title">Get Started</h1>
+                {errorMessage}
+                <form className="signup-form"
+                    onSubmit={(e) => {
+                    e.preventDefault();
+                    signup();
+                }}>
+                    <div>
+                        <input
+                            className="username-input"
+                            type="text"
+                            value={username}
+                            placeholder="Username"
+                            onChange={e => setUsername(e.target.value)}
+                        />
+                    </div>
+
+                    <div>
+                        <input
+                            className="password-input"
+                            type="password"
+                            value={password}
+                            placeholder = "Password"
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input className="sbm-btn" type="submit" value="Register"/>
+                    </div>
+
+                    <div className="already-have-account-btn">
+                        <button>
+                            Already have and account?
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 }

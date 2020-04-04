@@ -1,0 +1,124 @@
+.modal-background {
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(7, 38, 70, 0.3);
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.modal-child {
+  background-color: white;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  /* padding-top: 10px;
+  padding-bottom: 20px; */
+  justify-content: start;
+
+  /* border: 3px solid red; */
+}
+
+.form-title {
+  padding: 20px;
+  color: #197096;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.login-form {
+  margin: 70px;
+  display: flex;
+  flex-direction: column;
+
+  /* border: 1px solid green; */
+}
+
+.signup-div {
+  display: flex;
+
+  /* border: 1px solid red; */
+}
+
+.signup-img {
+  min-height: 550px;
+  max-height: 550px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.signup-left-side {
+  min-width: 300px;
+  max-width: 300px;
+  margin-right: 20px;
+  /* border: 1px solid green; */
+}
+
+.signup-form {
+  margin: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.username-input, .password-input {
+  margin-top: 40px;
+  color: #197096;
+  border-bottom: 4px solid #eee;
+  font-size: 16px;
+  font-weight: 600;
+  height: 36px;
+}
+
+.username-input:focus, .password-input:focus {
+  border-bottom: 4px solid #197096;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.sbm-btn {
+  margin-top: 50px;
+  color: white;
+  background-color: #cecece;
+  font-size: 20px;
+  font-weight: 800;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 20px;
+
+  /* border: 1px solid red; */
+}
+
+.sbm-btn:hover {
+  background-color: #ed851e;
+}
+
+.already-have-account-btn {
+  color: #28a5dc;
+  margin-top: 50px;
+}
+
+.already-have-account-btn:hover {
+  text-decoration: underline;
+}
+
+.create-account-btn {
+  color: #28a5dc;
+  margin-top: 50px;
+}
+
+.create-account-btn:hover {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  color: white;
+}
