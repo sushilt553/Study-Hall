@@ -31,8 +31,8 @@ export default () => {
       <div className="modal-component">
         {modal && (
           <Modal
-            component={modal === "signup" ? SignupForm : LoginForm}
-            close={() => setModal(null)}
+            component={modal === "signup" ? SignupForm : LoginForm} modalString={modal}
+            setModal={setModal} close={() => setModal(null) }
           />
         )}
       </div>

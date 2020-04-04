@@ -17,14 +17,13 @@
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  /* padding-top: 10px;
-  padding-bottom: 20px; */
   justify-content: start;
-
+  min-width: 400px;
   /* border: 3px solid red; */
 }
 
 .form-title {
+  margin-top: 30px;
   padding: 20px;
   color: #197096;
   font-size: 36px;
@@ -46,15 +45,13 @@
 }
 
 .signup-img {
-  min-height: 550px;
-  max-height: 550px;
+  max-height: 700px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
 }
 
 .signup-left-side {
-  min-width: 300px;
-  max-width: 300px;
+  max-width: 400px;
   margin-right: 20px;
   /* border: 1px solid green; */
 }
@@ -72,6 +69,7 @@
   font-size: 16px;
   font-weight: 600;
   height: 36px;
+  width: 300px;
 }
 
 .username-input:focus, .password-input:focus {
@@ -101,21 +99,29 @@
   background-color: #ed851e;
 }
 
-.already-have-account-btn {
+.login-link-btn {
   color: #28a5dc;
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  position: absolute;
+  bottom: 5%;
+  right: 15%;
+
 }
 
-.already-have-account-btn:hover {
-  text-decoration: underline;
-}
-
-.create-account-btn {
+.signup-link-btn {
   color: #28a5dc;
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  position: absolute;
+  bottom: 2%;
+  right: 35%;
 }
 
-.create-account-btn:hover {
+.signup-link-btn:hover,
+.login-link-btn:hover {
   text-decoration: underline;
 }
 

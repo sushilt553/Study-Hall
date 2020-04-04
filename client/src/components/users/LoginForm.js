@@ -65,12 +65,6 @@ export default () => {
           <input className="sbm-btn" type="submit" value="Log In"/>
         </div>
 
-        <div className="create-account-btn">
-            <button>
-                Create an account?
-            </button>
-        </div>
-
       </form>
     </>
   );

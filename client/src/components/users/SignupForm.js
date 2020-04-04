@@ -36,7 +36,7 @@ export default () => {
         <div className="signup-div">
 
             <div className="signup-left-side">
-                <img className="signup-img" src={signupPic2} />
+                <img className="signup-img" src={signupPic2} alt="signup_img"/>
             </div>
 
             <div className="signup-form-div">
@@ -70,11 +70,6 @@ export default () => {
                         <input className="sbm-btn" type="submit" value="Register"/>
                     </div>
 
-                    <div className="already-have-account-btn">
-                        <button>
-                            Already have and account?
-                        </button>
-                    </div>
                 </form>
             </div>
         </div>
