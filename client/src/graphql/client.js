@@ -47,6 +47,7 @@ const createClient = async() => {
 
     const client = new ApolloClient({
         cache,
+        // link: authLink.concat(httpLink, errorLink),
         link: ApolloLink.from([authLink.concat(errorLink), httpLink]),
         typeDefs,
         resolvers
