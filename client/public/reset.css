@@ -1,13 +1,3 @@
-button,
-ul,
-li {
-    border: none;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
 /* reset */
 
 html,
@@ -54,7 +44,7 @@ body {
     background-color: #e6e3dc;
 }
 
-ul {
+ul, li {
     list-style: none;
 }
 

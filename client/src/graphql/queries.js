@@ -10,8 +10,8 @@ export const FETCH_CATEGORIES = gql`
 `
 
 export const FETCH_CATEGORY = gql`
-    query Category {
-        category {
+    query Category($categoryId: ID!) {
+        category(_id: $categoryId) {
             _id
             name
             questions {
