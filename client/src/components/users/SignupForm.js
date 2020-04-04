@@ -30,18 +30,34 @@ export default () => {
 
     return (
         <>
+            <h1 className="form-title">Get Started</h1>
             {errorMessage}
             <form onSubmit={(e) => {
                 e.preventDefault();
                 signup();
             }}>
-                <label>Username:
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
-                </label>
-                <label>Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                </label>
-                <input type="submit" value="Signup"/>
+                <div>
+                    <input
+                        className="username-input"
+                        type="text"
+                        value={username}
+                        placeholder="Username"
+                        onChange={e => setUsername(e.target.value)}
+                    />
+                </div>
+
+                <div>
+                    <input
+                        className="password-input"
+                        type="password"
+                        value={password}
+                        placeholder = "Password"
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <input className="sbm-btn" type="submit" value="Register"/>
+                </div>
             </form>
         </>
     )

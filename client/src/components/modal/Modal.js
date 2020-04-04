@@ -1,7 +1,7 @@
 import React from 'react';
+import './modal.css';
 
 export default ({ component: Component, close }) => {
-
     return (
         <>
             <div className="modal-background" onClick={close} />
