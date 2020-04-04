@@ -33,7 +33,6 @@ export default ({categoryId}) => {
     const answersList = {};
 
     for (let i = 0; i < questionsArr.length; i++) {
-        debugger
         answersList[questionsArr[i]._id] = questionsArr[i].answer.title;
     };
 
