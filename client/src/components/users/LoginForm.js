@@ -32,8 +32,8 @@ export default () => {
 
   return (
     <>
-      {errorMessage}
       <h1 className="form-title">Log In</h1>
+      {errorMessage}
       <form className="login-form"
         onSubmit={e => {
           e.preventDefault();
