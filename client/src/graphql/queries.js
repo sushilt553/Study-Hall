@@ -56,6 +56,7 @@ export const CURRENT_USER = gql`
         me {
             _id
             username
+            masteryPoints
         }
     }
 `;
