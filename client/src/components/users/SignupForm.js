@@ -40,7 +40,9 @@ export default () => {
             </div>
 
             <div className="signup-form-div">
-                <h1 className="form-title">Get Started</h1>
+                <div className="form-title-div">
+                    <h1 className="form-title">Get Started</h1>
+                </div>
                 {errorMessage}
                 <form className="signup-form"
                     onSubmit={(e) => {
@@ -66,7 +68,7 @@ export default () => {
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <div>
+                    < div className = "sbm-btn-div" >
                         <input className="sbm-btn" type="submit" value="Register"/>
                     </div>
 

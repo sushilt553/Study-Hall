@@ -32,7 +32,9 @@ export default () => {
 
   return (
     <>
-      <h1 className="form-title">Log In</h1>
+      <div className="form-title-div">
+        <h1 className="form-title">Log In</h1>
+      </div>
       {errorMessage}
       <form className="login-form"
         onSubmit={e => {
@@ -61,7 +63,7 @@ export default () => {
           />
         </div>
 
-        <div>
+        <div className="sbm-btn-div">
           <input className="sbm-btn" type="submit" value="Log In"/>
         </div>
 
