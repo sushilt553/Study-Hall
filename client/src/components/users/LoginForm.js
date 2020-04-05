@@ -72,18 +72,17 @@ export default () => {
           />
         </div>
 
-        <div className="demo-btn-div">
-          <button className="demo-btn" 
-            onClick={() => demoLogin()}>
-            Demo
-          </button>
-        </div>
-
         <div className="sbm-btn-div">
           <input className="sbm-btn" type="submit" value="Log In"/>
         </div>
 
-      </form>
+        <div className="demo-btn-div">
+          <button className="demo-btn"
+            onClick={() => demoLogin()}>
+            Demo
+          </button>
+        </div>
+      </form>  
     </>
   );
 };
