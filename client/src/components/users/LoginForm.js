@@ -25,7 +25,7 @@ export default () => {
       }
     },
     onError() {
-      setErrorMessage("Login unsuccessful");
+      setErrorMessage("Invalid Credentials");
     },
     refetchQueries: [{ query: CURRENT_USER }],
   });
@@ -35,7 +35,9 @@ export default () => {
       <div className="form-title-div">
         <h1 className="form-title">Log In</h1>
       </div>
-      {errorMessage}
+      <div className="errors-list">
+        {errorMessage}
+      </div>
       <form className="login-form"
         onSubmit={e => {
           e.preventDefault();
@@ -49,6 +51,7 @@ export default () => {
               type="text"
               value={username}
               placeholder="Username"
+              required="true"
               onChange={e => setUsername(e.target.value)}
             />
         </div>
@@ -59,6 +62,7 @@ export default () => {
             type="password"
             value={password}
             placeholder = "Password"
+            required = "true"
             onChange={e => setPassword(e.target.value)}
           />
         </div>

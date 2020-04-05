@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP_USER } from '../../graphql/mutations';
 import { IS_LOGGED_IN, CURRENT_USER } from '../../graphql/queries';
 import signupPic from './images/signup.jpg';
-import signupPic0 from './images/signup(0).jpg';
-import signupPic1 from './images/signup(1).jpg';
-import signupPic2 from './images/signup(2).jpg';
 
 export default () => {
+    const history = useHistory();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("")
@@ -22,7 +21,9 @@ export default () => {
                 if (!signup){
                     setErrorMessage("Invalid username or password");
                 }else{
-                    localStorage.setItem('token', signup.token)
+                    localStorage.setItem('token', signup.token);
+                    cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
+                    history.push("/home");
                 }
             },
             onError() {
@@ -36,14 +37,16 @@ export default () => {
         <div className="signup-div">
 
             <div className="signup-left-side">
-                <img className="signup-img" src={signupPic2} alt="signup_img"/>
+                <img className="signup-img" src={signupPic} alt="signup_img"/>
             </div>
 
             <div className="signup-form-div">
                 <div className="form-title-div">
                     <h1 className="form-title">Get Started</h1>
                 </div>
-                {errorMessage}
+                <div className="errors-list">
+                    {errorMessage}
+                </div>
                 <form className="signup-form"
                     onSubmit={(e) => {
                     e.preventDefault();
@@ -55,6 +58,7 @@ export default () => {
                             type="text"
                             value={username}
                             placeholder="Username"
+                            required = "true"
                             onChange={e => setUsername(e.target.value)}
                         />
                     </div>
@@ -65,6 +69,7 @@ export default () => {
                             type="password"
                             value={password}
                             placeholder = "Password"
+                            required = "true"
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
