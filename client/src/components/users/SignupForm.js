@@ -50,7 +50,7 @@ export default () => {
         refetchQueries: [{ query: CURRENT_USER }],
     });
 
-    function demoLogin(username, password) {
+    function demoLogin() {
         login();
     }
 
@@ -97,7 +97,7 @@ export default () => {
 
                     <div className="demo-btn-div">
                         <button className="demo-btn" 
-                            onClick={() => demoLogin("demo", "password")}>
+                            onClick={() => demoLogin()}>
                             Demo
                         </button>
                     </div>
