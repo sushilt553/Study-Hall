@@ -10,9 +10,20 @@ export default () => {
   return (
     <>
       <div className="splash-container">
-        <div className="header-img-container">
-          <div className="header-img">
-            <img src={Header} alt="header" />
+        <div className="header-container">
+          <p className="header-statement1">
+            The World's Fastest Learning Platform
+          </p>
+          <p className="header-statement2">
+            Learn twice as fast, and remember longer.
+          </p>
+          <p className="header-statement2">
+            Proven by decades of cognitive science.
+          </p>
+          <div className="header-img-container">
+            <div className="header-img">
+              {/* <img src={Header} alt="header" /> */}
+            </div>
           </div>
         </div>
         <div className="panel-container">
