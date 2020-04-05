@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import "./CategoryShow.css";
 import { FETCH_CATEGORY } from '../../graphql/queries';
-import Option from './Option';
+import Question from './Question';
 
 export default ({categoryId}) => {
     
-    function checkAnswer(questionId, answer, answersList) {
+    function checkAnswer(questionId, answer, answersList, setDisabled) {
         if (answersList[questionId] === answer) {
             setToggle("Correct");
+            setDisabled(true);
         } else {
             setToggle("Incorrect");
+            setDisabled(true);
         }
     }
 
@@ -39,12 +41,7 @@ export default ({categoryId}) => {
 
     const questionsList = data.category.questions.map(question =>
         <div className="quiz-header">
-            <li className="quiz-title">{question.title}</li>
-            { question.options.map(option =>
-                <ul className="quiz-list"> 
-                    <Option setToggle={setToggle} checkAnswer={checkAnswer} question={question} option={option} answersList={answersList} />
-                </ul>
-                )}
+            <Question answersList={answersList} question={question} checkAnswer={checkAnswer} setToggle={setToggle}/>
         </div>
     )
 
