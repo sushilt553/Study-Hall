@@ -30,6 +30,11 @@ export default () => {
     refetchQueries: [{ query: CURRENT_USER }],
   });
 
+  function demoLogin(username, password) {
+    setUsername("demo");
+    setPassword("password");
+  }
+
   return (
     <>
       <div className="form-title-div">
@@ -65,6 +70,13 @@ export default () => {
             required = "true"
             onChange={e => setPassword(e.target.value)}
           />
+        </div>
+
+        <div className="demo-btn-div">
+          <button className="demo-btn" 
+            onClick={() => demoLogin("demo", "password")}>
+            Demo
+          </button>
         </div>
 
         <div className="sbm-btn-div">
