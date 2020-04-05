@@ -10,9 +10,11 @@ export default ({categoryId}) => {
         if (answersList[questionId] === answer) {
             setToggle("Correct");
             setDisabled(true);
+            return true;
         } else {
             setToggle("Incorrect");
             setDisabled(true);
+            return false
         }
     }
 

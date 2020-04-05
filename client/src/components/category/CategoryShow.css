@@ -26,10 +26,10 @@
     font-weight: bolder;
 }
 
-.Correct {
+.Correct, .green {
     color: green;
 }
 
-.Incorrect {
+.Incorrect, .red {
     color: red;
 }
