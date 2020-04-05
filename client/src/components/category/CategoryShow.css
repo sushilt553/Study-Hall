@@ -1,11 +1,35 @@
-.test {
-    padding-top: 80px;
+.quiz-main {
+    padding-top: 60px;
 }
 
-.correct{
+.quiz-category {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.quiz-toggle-category {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #e6e3dc;
+}
+
+.quiz-order-list {
+    padding: 80px 80px;
+}
+
+.Correct,
+.Incorrect {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.Correct {
     color: green;
 }
 
-.incorrect{
+.Incorrect {
     color: red;
 }

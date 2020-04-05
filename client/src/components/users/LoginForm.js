@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import { LOGIN_USER } from "../../graphql/mutations";
 import { IS_LOGGED_IN, CURRENT_USER } from "../../graphql/queries";
 
-export default () => {
+export default ({close}) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -47,6 +47,7 @@ export default () => {
         onSubmit={e => {
           e.preventDefault();
           login();
+          close();
         }}
       >
 

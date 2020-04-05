@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <ProtectedRoute path={`/category/:categoryId`} component={CategoryShowPage} />
           <ProtectedRoute path={`/home`} component={HomePage} />         
-          <Route exact path={`/`} component={SplashPage} />
+          <AuthRoute exact path={`/`} component={SplashPage} />
           <Route path={`/`} component={ErrorPage} />
         </Switch>
       </BrowserRouter>

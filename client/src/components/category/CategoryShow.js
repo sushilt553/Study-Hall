@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import "./CategoryShow.css";
 import { FETCH_CATEGORY } from '../../graphql/queries';
+import Question from './Question';
 
 export default ({categoryId}) => {
     
-    function checkAnswer(questionId, answer, answersList) {
+    function checkAnswer(questionId, answer, answersList, setDisabled) {
         if (answersList[questionId] === answer) {
-            setToggle("correct");
+            setToggle("Correct");
+            setDisabled(true);
         } else {
-            setToggle("incorrect");
+            setToggle("Incorrect");
+            setDisabled(true);
         }
     }
 
@@ -37,23 +40,18 @@ export default ({categoryId}) => {
     };
 
     const questionsList = data.category.questions.map(question =>
-        <>
-        <li>{question.title}</li>
-        { question.options.map(option =>
-            <ul> 
-                <li>
-                    <input  type="radio" id={option._id} name={question.title} value={option.title} onClick={() => checkAnswer(question._id, option.title, answersList )}/>
-                    <label className={toggle} htmlFor={option._id}>{option.title}</label>
-                </li>
-            </ul>
-            )}
-        </>
+        <div className="quiz-header">
+            <Question answersList={answersList} question={question} checkAnswer={checkAnswer} setToggle={setToggle}/>
+        </div>
     )
 
     return (
-        <section className="test">
-            <h1>{data.category.name}</h1>
-            <ol>
+        <section className="quiz-main">
+            <div className="quiz-toggle-category">
+                <h1 className="quiz-category">{data.category.name}</h1>
+                <div className={toggle}>{toggle}</div>
+            </div>
+            <ol className="quiz-order-list">
                 {questionsList}
             </ol>
         </section>
