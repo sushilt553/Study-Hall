@@ -16,7 +16,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 20px;
   min-width: 400px;
 
   /* border: 3px solid red; */
@@ -27,6 +27,12 @@
   justify-content: center;
   /* border: 1px solid red; */
 
+}
+
+.errors-list {
+  display: flex;
+  justify-content: center;
+  color: red;
 }
 
 .form-title {
@@ -40,7 +46,10 @@
 }
 
 .login-form {
-  margin: 70px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  margin-left: 70px;
+  margin-right: 70px;
   display: flex;
   flex-direction: column;
 
@@ -55,8 +64,8 @@
 
 .signup-img {
   max-height: 700px;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .signup-left-side {
@@ -73,6 +82,7 @@
 
 .username-input, .password-input {
   margin-top: 40px;
+  margin-bottom: 40px;
   color: #197096;
   border-bottom: 4px solid #eee;
   font-size: 16px;
@@ -96,6 +106,7 @@
 
 .sbm-btn {
   margin-top: 50px;
+  margin-bottom: 30px;
   color: white;
   background-color: #cecece;
   font-size: 20px;
@@ -115,8 +126,6 @@
 
 .login-link-btn {
   color: #28a5dc;
-  margin-top: 10px;
-  margin-bottom: 20px;
   outline: none;
   position: absolute;
   bottom: 5%;
@@ -126,7 +135,6 @@
 
 .signup-link-btn {
   color: #28a5dc;
-  margin-top: 10px;
   margin-bottom: 20px;
   outline: none;
   position: absolute;
@@ -141,4 +149,5 @@
 
 .logout-btn {
   color: white;
+  outline: none;
 }
