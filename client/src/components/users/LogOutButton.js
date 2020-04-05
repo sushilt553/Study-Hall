@@ -5,9 +5,7 @@ export default() => {
     const client = useApolloClient();
 
     return (
-        <button className="logout-btn" onClick={() => {
-            client.resetStore()
-        }}>
+        <button className="logout-btn" onClick={() => client.resetStore()}>
             Logout
         </button>
     )
