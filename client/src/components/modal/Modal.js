@@ -14,7 +14,7 @@ export default ({ component: Component, close, modalString, setModal }) => {
         <>
             <div className="modal-background" onClick={close}>
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
-                    <Component />
+                    <Component close={close}/>
                     {button}
                 </div>
             </div>
