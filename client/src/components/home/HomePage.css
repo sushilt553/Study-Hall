@@ -4,6 +4,7 @@
     justify-content: center;
     background: linear-gradient(315deg, rgb(31, 170, 235),
      rgb(243, 243, 195));
+    height: 100vh;
 
     /* border: 1px solid green;
     padding-bottom: 10px; */
@@ -32,12 +33,13 @@
 
 .single-category {
     margin: 10px;
-    margin-bottom: 40px;
     width: 100%;
-    min-height: 200px;
+    height: 20%;
     font-size: 40px;
     font-weight: bolder;
     border-radius: 15px;
+    letter-spacing: 10px;
+    word-spacing: 20px;
 
     /* border: 1px solid green; */
 }
