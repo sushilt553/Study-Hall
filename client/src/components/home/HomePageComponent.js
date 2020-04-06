@@ -7,11 +7,19 @@ import "./HomePage.css";
 
 export default () => {
 
-    const {data: dataR, loading: loadingR, error: errorR} = useQuery(CURRENT_USER);
 
-    if (!dataR, loadingR, errorR) return null;
+    // const { data: dataR, loading: loadingR, error: errorR } = useQuery(
+    //     CURRENT_USER,
+    //     {
+    //         fetchPolicy: 'network-only'
+    //     }
+    //     );
 
-    const user = dataR.me;
+    // if (loadingR) return <p>Loading...</p>
+    // if (errorR) return <p>ERROR</p>
+    // if (!dataR) return <p>Not found</p>
+
+    // const user = dataR.me;
 
     const {data, loading, error} = useQuery(FETCH_CATEGORIES)
 
@@ -50,7 +58,9 @@ export default () => {
 
     return (
         <div className="categories-div">
-            <div className="sidebar"><Sidebar user={user} categories={categories}/></div>
+            <div className="sidebar">
+                {/* <Sidebar user={user} categories={categories}/> */}
+            </div>
                 <div className="categories-list-div">
                     <h1 className="category-title">Quiz Categories</h1>
                     <ul className="categories-list-left">
@@ -60,6 +70,7 @@ export default () => {
                         {categoryListright}
                     </ul>
                 </div>
-            </div>
+        </div>
+            
     )
 }

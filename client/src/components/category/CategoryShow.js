@@ -8,13 +8,13 @@ import Sidebar from "../sidebar/Sidebar";
 import "./reset.css";
 
 export default ({ categoryId }) => {
-  const { data: dataR, error: errorR, loading: loadingR } = useQuery(
-    CURRENT_USER
-  );
+  // const { data: dataR, error: errorR, loading: loadingR } = useQuery(
+  //   CURRENT_USER
+  // );
 
-  if (!dataR || loadingR || errorR) return null;
+  // if (!dataR || loadingR || errorR) return null;
 
-  const user = dataR.me;
+  // const user = dataR.me;
 
   const { data: dataC, error: errorC, loading: loadingC } = useQuery(FETCH_CATEGORIES);
 
@@ -88,7 +88,7 @@ export default ({ categoryId }) => {
 
   return (
     <section className="quiz-main">
-      <Sidebar user={user} categories={allCategories}/>
+      {/* <Sidebar user={user} categories={allCategories}/> */}
       <div className="quiz-toggle-category">
         <h1 className="quiz-category">{data.category.name}</h1>
         <div className={toggle}>{toggle}</div>
