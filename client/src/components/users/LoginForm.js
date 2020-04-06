@@ -57,7 +57,7 @@ export default ({close}) => {
               type="text"
               value={username}
               placeholder="Username"
-              required="true"
+              required
               onChange={e => setUsername(e.target.value)}
             />
         </div>
@@ -68,7 +68,7 @@ export default ({close}) => {
             type="password"
             value={password}
             placeholder = "Password"
-            required = "true"
+            required
             onChange={e => setPassword(e.target.value)}
           />
         </div>
