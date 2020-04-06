@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import "./CategoryShow.css";
-import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
+import { FETCH_CATEGORY, CURRENT_USER, FETCH_CATEGORIES } from "../../graphql/queries";
 import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
+import Sidebar from "../sidebar/Sidebar";
 import "./reset.css";
 
 export default ({ categoryId }) => {
@@ -14,6 +15,12 @@ export default ({ categoryId }) => {
   if (!dataR || loadingR || errorR) return null;
 
   const user = dataR.me;
+
+  const { data: dataC, error: errorC, loading: loadingC } = useQuery(FETCH_CATEGORIES);
+
+  if (!dataC, errorC, loadingC) return null;
+
+  const allCategories = dataC.categories
 
   const [updatePoint, { pointLoading, pointError }] = useMutation(
     UPDATE_POINT,
@@ -81,7 +88,7 @@ export default ({ categoryId }) => {
 
   return (
     <section className="quiz-main">
-      <>You have {user.masteryPoints} Mastery Points</>
+      <Sidebar user={user} categories={allCategories}/>
       <div className="quiz-toggle-category">
         <h1 className="quiz-category">{data.category.name}</h1>
         <div className={toggle}>{toggle}</div>

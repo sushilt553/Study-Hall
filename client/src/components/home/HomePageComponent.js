@@ -1,16 +1,26 @@
 import React from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import {Link} from 'react-router-dom';
-import { FETCH_CATEGORIES } from '../../graphql/queries';
+import { FETCH_CATEGORIES, CURRENT_USER } from '../../graphql/queries';
+import Sidebar from '../sidebar/Sidebar';
 import "./HomePage.css";
 
 export default () => {
+
+    const {data: dataR, loading: loadingR, error: errorR} = useQuery(CURRENT_USER);
+
+    if (!dataR, loadingR, errorR) return null;
+
+    const user = dataR.me;
+
     const {data, loading, error} = useQuery(FETCH_CATEGORIES)
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>ERROR</p>
     if (!data || !data.categories) return <p>NO CATEGORY FOUND</p>
 
+    const categories = data.categories;
+    
     let leftcategories = [];
     let rightcategories = [];
 
@@ -40,15 +50,16 @@ export default () => {
 
     return (
         <div className="categories-div">
-            <div className="categories-list-div">
-                <h1 className="category-title">Quiz Categories</h1>
-                <ul className="categories-list-left">
-                    {categoryListLeft}
-                </ul>
-                <ul className="categories-list-right">
-                    {categoryListright}
-                </ul>
+            <div className="sidebar"><Sidebar user={user} categories={categories}/></div>
+                <div className="categories-list-div">
+                    <h1 className="category-title">Quiz Categories</h1>
+                    <ul className="categories-list-left">
+                        {categoryListLeft}
+                    </ul>
+                    <ul className="categories-list-right">
+                        {categoryListright}
+                    </ul>
+                </div>
             </div>
-        </div>
     )
 }
