@@ -75,7 +75,7 @@ export default ({categoryId}) => {
 
     return (
         <section className="quiz-main">
-            <>You have {user.masteryPoints}</>
+            <>You have {user.masteryPoints} Mastery Points</>
             <div className="quiz-toggle-category">
                 <h1 className="quiz-category">{data.category.name}</h1>
                 <div className={toggle}>{toggle}</div>
