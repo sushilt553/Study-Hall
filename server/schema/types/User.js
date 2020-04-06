@@ -23,6 +23,7 @@ const typeDefs = `
     extend type Mutation {
         login(username: String!, password: String!): UserCredentials
         signup(username: String!, password: String!): UserCredentials
+        updatePoint(point: Int): User
     }
 `;
 
@@ -39,6 +40,12 @@ const resolvers = {
         },
         signup(_, {username, password}){
             return User.signup(username, password);
+        },
+        updatePoint: async(_, {point}, context) => {
+            const user = await context.user;
+            user.masteryPoints += point ;
+            await user.save();
+            return user;
         }
     }
 }

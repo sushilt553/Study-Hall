@@ -1,19 +1,45 @@
 import React, {useState} from 'react';
-import {useQuery} from '@apollo/react-hooks';
+import {useQuery, useMutation} from '@apollo/react-hooks';
 import "./CategoryShow.css";
-import { FETCH_CATEGORY } from '../../graphql/queries';
+import { FETCH_CATEGORY, CURRENT_USER } from '../../graphql/queries';
 import Question from './Question';
+import { UPDATE_POINT } from '../../graphql/mutations';
 
-export default ({categoryId}) => {
+export default ({categoryId}) => { 
+
+    const {data: dataR, error: errorR, loading: loadingR} = useQuery(CURRENT_USER);
+
+    if (!dataR || loadingR || errorR) return null;
+
+    const user = dataR.me;
+
+    const [updatePoint, {pointLoading, pointError}] = useMutation(
+        UPDATE_POINT,
+        {
+            refetchQueries: [{query: CURRENT_USER}]
+        }
+    )
+
+    if (pointLoading || pointError) return null;
     
     function checkAnswer(questionId, answer, answersList, setDisabled) {
         if (answersList[questionId] === answer) {
             setToggle("Correct");
             setDisabled(true);
+            updatePoint({
+                variables: {
+                    point: 10
+                }
+            });
             return true;
         } else {
             setToggle("Incorrect");
             setDisabled(true);
+            updatePoint({
+                variables: {
+                    point: -10
+                }
+            });
             return false
         }
     }
@@ -49,6 +75,7 @@ export default ({categoryId}) => {
 
     return (
         <section className="quiz-main">
+            <>You have {user.masteryPoints}</>
             <div className="quiz-toggle-category">
                 <h1 className="quiz-category">{data.category.name}</h1>
                 <div className={toggle}>{toggle}</div>

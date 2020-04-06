@@ -7,6 +7,7 @@ export const SIGNUP_USER = gql`
             username
             token
             loggedIn
+            masteryPoints
         }
     }
 `
@@ -18,6 +19,17 @@ export const LOGIN_USER = gql`
             username
             token
             loggedIn
+            masteryPoints
         }
     }
+`
+
+export const UPDATE_POINT = gql`
+    mutation UpdatePoint($point: Int) {
+        updatePoint(point: $point) {
+            _id
+            username
+            masteryPoints
+        }
+    } 
 `
