@@ -16,40 +16,89 @@ mongoose
     .then(() => console.log('Connected to mongoDB successfully'))
     .catch(err => console.log(err));
 
+const seedQuestions = require("./Questions");
+const seedAnswers = require("./Answers");
+const seedOptions = require("./Options");
+const seedCategories = require("./Categories");
+
 const seedDatabase = async() => {
     // const hashedPassword = await bcrypt.hash('hunter12', 10);
     // const user = new User({username: 'test123', password: hashedPassword});
     // await user.save();
 
     const categoriesArr = [];
-    for(let i = 0; i < 10; i++){
-        const category = new Category({name: Faker.Book.title()});
+    for(let i = 0; i < seedCategories.length; i++){
+        const category = new Category({name: seedCategories[i]});
         await category.save();
         categoriesArr.push(category._id);
-    }
+    };
 
     const optionsArr = [];
-    for(let j = 0; j < 70; j++){
-        const option = new Option({title: Faker.Lorem.word()});
+    for (let j = 0; j < seedOptions.length; j++) {
+        const option = new Option({title: seedOptions[j]});
         await option.save();
         optionsArr.push(option._id);
-    }
+    };
 
-    for(let k = 0; k < 40; k++) {
-        let options = [];
-        for(let l = 0; l < 4; l++){
-            let option = optionsArr[Math.floor(Math.random() * optionsArr.length)];
-            options.push(option);
-        }
-        let answerId = options[Math.floor(Math.random() * options.length)];
-        const option = await Option.findById(answerId);
-        const answer = new Answer({title: option.title})
+    const answersArr = [];
+    for(let k = 0; k < seedAnswers.length; k++) {
+        const answer = new Answer({ title: seedAnswers[k] });
         await answer.save();
-        let category = categoriesArr[Math.floor(Math.random() * categoriesArr.length)];
-        let title = Faker.Lorem.sentence()
-        const question = new Question({title, answer: answer._id, category, options});
-        await question.save();
-    }
+        answersArr.push(answer._id);
+    };
+
+    for (let i = 0; i < categoriesArr.length; i++) {
+        let answer;
+        let title;
+        let category = categoriesArr[i];
+        for(let l = 0; l < 10; l++){
+            let options = [];
+            for (let j = 0; j < 4; j++) {
+                options.push(optionsArr[j]);
+            }
+            for (let k = 0; k < 4; k++) {
+                optionsArr.shift();
+            }
+            answer = answersArr[0];
+            title = seedQuestions[0];
+
+            seedQuestions.shift();
+            answersArr.shift();
+
+            const question = new Question({ title, answer, category, options })
+            await question.save();
+        };
+    };
+
+    // const categoriesArr = [];
+    // for(let i = 0; i < categories.length; i++){
+    //     const category = new Category({name: categories[i]});
+    //     await category.save();
+    //     categoriesArr.push(category._id);
+    // }
+
+    // const optionsArr = [];
+    // for(let j = 0; j < 70; j++){
+    //     const option = new Option({title: Faker.Lorem.word()});
+    //     await option.save();
+    //     optionsArr.push(option._id);
+    // }
+
+    // for(let k = 0; k < 40; k++) {
+    //     let options = [];
+    //     for(let l = 0; l < 4; l++){
+    //         let option = optionsArr[Math.floor(Math.random() * optionsArr.length)];
+    //         options.push(option);
+    //     }
+    //     let answerId = options[Math.floor(Math.random() * options.length)];
+    //     const option = await Option.findById(answerId);
+    //     const answer = new Answer({title: option.title})
+    //     await answer.save();
+    //     let category = categoriesArr[Math.floor(Math.random() * categoriesArr.length)];
+    //     let title = Faker.Lorem.sentence()
+    //     const question = new Question({title, answer: answer._id, category, options});
+    //     await question.save();
+    // }
     mongoose.connection.close();
 }
 
