@@ -159,7 +159,7 @@ Princeton
 6. The American army in the early years of the War for Independence can be characterized as?
 Answer: Ill fed, ill clothed, and ill trained
 Options: A well-trained army with a strong tradition of bravery under fire
-Buoyed by a string of exhilirating victories
+Buoyed by a string of exhilarating victories
 Floundering because of a lack of any effective or respected leaders
 
 7. In the fall of 1939, an overwhelming majority of the American people believed that?
