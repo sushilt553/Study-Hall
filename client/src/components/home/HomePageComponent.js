@@ -11,11 +11,44 @@ export default () => {
     if (error) return <p>ERROR</p>
     if (!data || !data.categories) return <p>NO CATEGORY FOUND</p>
 
-    const categoryList = data.categories.map(category => <li className="single-category" key={category._id}><Link to={`/category/${category._id}`}>{category.name.toUpperCase()}</Link></li>) 
+    let leftcategories = [];
+    let rightcategories = [];
+
+    data.categories.forEach((category, i) => {
+        if (i % 2 === 0) {
+            leftcategories.push(category);
+        } else {
+            rightcategories.push(category);
+        }
+    })
+
+    const categoryListLeft = leftcategories.map((category, i) =>
+        <li className={`single-category l-${i}`} key={category._id}>
+            <Link className="li-link-l" to={`/category/${category._id}`}>
+                {category.name.toUpperCase()}
+            </Link>
+        </li>
+    ) 
+
+    const categoryListright = rightcategories.map((category, i) =>
+        <li className={`single-category r-${i}`} key={category._id}>
+            <Link className="li-link-r" to={`/category/${category._id}`}>
+                {category.name.toUpperCase()}
+            </Link>
+        </li>
+    ) 
 
     return (
-        <ul className="categories-list">
-            {categoryList}
-        </ul>
+        <div className="categories-div">
+            <div className="categories-list-div">
+                <h1 className="category-title">Quiz Categories</h1>
+                <ul className="categories-list-left">
+                    {categoryListLeft}
+                </ul>
+                <ul className="categories-list-right">
+                    {categoryListright}
+                </ul>
+            </div>
+        </div>
     )
 }
