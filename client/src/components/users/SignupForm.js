@@ -5,7 +5,7 @@ import { SIGNUP_USER, LOGIN_USER } from '../../graphql/mutations';
 import { IS_LOGGED_IN, CURRENT_USER } from '../../graphql/queries';
 import signupPic from './images/signup.jpg';
 
-export default () => {
+export default ({close}) => {
     const history = useHistory();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -52,6 +52,7 @@ export default () => {
 
     function demoLogin() {
         login();
+        close();
     }
 
     return (
@@ -72,6 +73,7 @@ export default () => {
                     onSubmit={(e) => {
                     e.preventDefault();
                     signup();
+                    close();
                 }}>
                     <div>
                         <input
@@ -79,7 +81,7 @@ export default () => {
                             type="text"
                             value={username}
                             placeholder="Username"
-                            required = "true"
+                            required
                             onChange={e => setUsername(e.target.value)}
                         />
                     </div>
@@ -90,7 +92,7 @@ export default () => {
                             type="password"
                             value={password}
                             placeholder = "Password"
-                            required = "true"
+                            required
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
