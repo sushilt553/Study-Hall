@@ -2,25 +2,24 @@ import React, { useState } from "react";
 import Option from "./Option";
 import "./CategoryShow.css";
 
-export default ({ question, checkAnswer, answersList }) => {
+export default ({ question, answersList, shuffledOptions }) => {
   const [disabled, setDisabled] = useState(false);
-  const shuffledOptions = question.options;
+  
   return (
     <>
-      <li className="quiz-title" disabled={disabled}>
+      <li className="quiz-title">
         {question.title}
       </li>
-      {shuffledOptions.map((option, idx) => (
+      {shuffledOptions.map((option, idx) => 
         <Option
-          checkAnswer={checkAnswer}
           question={question}
           option={option}
           answersList={answersList}
-          disabled={disabled}
           setDisabled={setDisabled}
+          disabled={disabled}
           key={idx}
         />
-      ))}
+      )}
     </>
   );
 };

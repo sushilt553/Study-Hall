@@ -1,40 +1,16 @@
-import React, { useState } from "react";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import React from "react";
+import { useQuery} from "@apollo/react-hooks";
 import "./CategoryShow.css";
-import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
-import Question from "./Question";
-import { UPDATE_POINT } from "../../graphql/mutations";
+import { FETCH_CATEGORY} from "../../graphql/queries";
+import QuestionOptions from "./QuestionOptions";
 import SideBar from "../sidebar/Sidebar";
 
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
 export default ({ categoryId }) => {
-  const [updatePoint, { pointLoading, pointError }] = useMutation(
-    UPDATE_POINT,
-    {
-      refetchQueries: [{ query: CURRENT_USER }],
-    }
-  );
-
-  if (pointLoading || pointError) return null;
-
-  function checkAnswer(questionId, answer, answersList, setDisabled) {
-    if (answersList[questionId] === answer) {
-      setDisabled(true);
-      updatePoint({
-        variables: {
-          point: 10,
-        },
-      });
-      return true;
-    } else {
-      setDisabled(true);
-      updatePoint({
-        variables: {
-          point: -10,
-        },
-      });
-      return false;
-    }
-  }
 
   const { data, loading, error } = useQuery(FETCH_CATEGORY, {
     variables: {
@@ -48,7 +24,7 @@ export default ({ categoryId }) => {
   if (!data.category || !data.category.questions)
     return <p>Category not found</p>;
 
-  const questionsArr = data.category.questions;
+  const questionsArr = shuffle(data.category.questions);
   const answersList = {};
 
   for (let i = 0; i < questionsArr.length; i++) {
@@ -57,10 +33,9 @@ export default ({ categoryId }) => {
 
   const questionsList = questionsArr.map((question, idx) => (
     <div className="quiz-header" key={idx}>
-      <Question
+      <QuestionOptions
         answersList={answersList}
         question={question}
-        checkAnswer={checkAnswer}
         key={question._id}
       />
     </div>
