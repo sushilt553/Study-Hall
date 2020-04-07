@@ -5,11 +5,6 @@ import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
 import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
 
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-  return array;
-}
-
 export default ({ categoryId }) => {
 
   const [updatePoint, { pointLoading, pointError }] = useMutation(
@@ -23,7 +18,6 @@ export default ({ categoryId }) => {
 
   function checkAnswer(questionId, answer, answersList, setDisabled) {
     if (answersList[questionId] === answer) {
-      setToggle("Correct");
       setDisabled(true);
       updatePoint({
         variables: {
@@ -32,7 +26,6 @@ export default ({ categoryId }) => {
       });
       return true;
     } else {
-      setToggle("Incorrect");
       setDisabled(true);
       updatePoint({
         variables: {
@@ -42,8 +35,6 @@ export default ({ categoryId }) => {
       return false;
     }
   }
-
-  const [toggle, setToggle] = useState("");
 
   const { data, loading, error } = useQuery(FETCH_CATEGORY, {
     variables: {
@@ -57,20 +48,19 @@ export default ({ categoryId }) => {
   if (!data.category || !data.category.questions)
     return <p>Category not found</p>;
 
-  const questionsArr = shuffle(data.category.questions);
+  const questionsArr = data.category.questions;
   const answersList = {};
 
   for (let i = 0; i < questionsArr.length; i++) {
     answersList[questionsArr[i]._id] = questionsArr[i].answer.title;
   }
 
-  const questionsList = data.category.questions.map((question, idx) => (
+  const questionsList = questionsArr.map((question, idx) => (
     <div className="quiz-header" key={idx}>
       <Question
         answersList={answersList}
         question={question}
         checkAnswer={checkAnswer}
-        setToggle={setToggle}
         key={question._id}
       />
     </div>
