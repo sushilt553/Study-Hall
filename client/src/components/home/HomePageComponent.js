@@ -43,15 +43,15 @@ export default () => {
 
     return (
         <div className="categories-div">
-                <div className="categories-list-div">
-                    <h1 className="category-title">Quiz Categories</h1>
-                    <ul className="categories-list-left">
-                        {categoryListLeft}
-                    </ul>
-                    <ul className="categories-list-right">
-                        {categoryListright}
-                    </ul>
-                </div>
+            <div className="categories-list-div">
+                <h1 className="category-title">Quiz Categories</h1>
+                <ul className="categories-list-left">
+                    {categoryListLeft}
+                </ul>
+                <ul className="categories-list-right">
+                    {categoryListright}
+                </ul>
+            </div>
         </div>
             
     )

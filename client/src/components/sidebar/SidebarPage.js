@@ -2,6 +2,7 @@ import React from 'react';
 import {useQuery} from "@apollo/react-hooks";
 import {Link} from 'react-router-dom';
 import { FETCH_CATEGORIES } from '../../graphql/queries';
+import "./sidebar.css";
 
 export default ({user}) => {
     const { data, loading, error } = useQuery(FETCH_CATEGORIES)
@@ -13,7 +14,7 @@ export default ({user}) => {
         )
 
     return (
-        <div>
+        <div className="sideber-div">
             <p>Welcome {user.username}</p>
             {user.masteryPoints}
             <ul>

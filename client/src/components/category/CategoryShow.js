@@ -74,11 +74,18 @@ export default ({ categoryId }) => {
 
   return (
     <section className="quiz-main">
-      <div className="quiz-toggle-category">
-        <h1 className="quiz-category">{data.category.name}</h1>
-        <div className={toggle}>{toggle}</div>
+      <div className="quiz-show-page-div">
+
+        <div className="quiz-toggle-category">
+          <h1 className="quiz-category">{data.category.name}</h1>
+          <div className={toggle}>{toggle}</div>
+        </div>
+
+        <div className="quiz-order-list-div">
+          <ol className="quiz-order-list">{questionsList}</ol>
+        </div>
+
       </div>
-      <ol className="quiz-order-list">{questionsList}</ol>
     </section>
   );
 };

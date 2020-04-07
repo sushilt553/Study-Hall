@@ -24,10 +24,16 @@ export default ({close}) => {
                     localStorage.setItem('token', signup.token);
                     cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
                     history.push("/home");
+                    setErrorMessage("");
+                    close();
                 }
             },
             onError() {
-                setErrorMessage("Please enter a valid username and password");
+                // if (password.length >= 7) {
+                //     setErrorMessage("Username already taken");
+                // } else {
+                    setErrorMessage("Please enter a valid username and password");
+                // }
             },
             refetchQueries: [{query: CURRENT_USER}]
         }
@@ -45,6 +51,8 @@ export default ({close}) => {
             localStorage.setItem("token", login.token);
             cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
             history.push("/home");
+            setErrorMessage("");
+            close();
         }
         },
         refetchQueries: [{ query: CURRENT_USER }],
@@ -52,7 +60,6 @@ export default ({close}) => {
 
     function demoLogin() {
         login();
-        close();
     }
 
     return (
@@ -73,7 +80,6 @@ export default ({close}) => {
                     onSubmit={(e) => {
                     e.preventDefault();
                     signup();
-                    close();
                 }}>
                     <div>
                         <input
@@ -97,15 +103,15 @@ export default ({close}) => {
                         />
                     </div>
 
+                    < div className = "sbm-btn-div" >
+                        <input className="sbm-btn" type="submit" value="Register"/>
+                    </div>
+
                     <div className="demo-btn-div">
                         <button className="demo-btn" 
                             onClick={() => demoLogin()}>
                             Demo
                         </button>
-                    </div>
-
-                    < div className = "sbm-btn-div" >
-                        <input className="sbm-btn" type="submit" value="Register"/>
                     </div>
 
                 </form>
