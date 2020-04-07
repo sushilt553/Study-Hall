@@ -1,13 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import {useMutation} from '@apollo/react-hooks';
+import { UPDATE_POINT } from "../../graphql/mutations";
+import { CURRENT_USER } from "../../graphql/queries";
 import "./CategoryShow.css";
 
-export default ({checkAnswer, question, option, answersList, disabled, setDisabled}) => {
+export default ({ question, option, answersList, setDisabled, disabled }) => {
+
+    const [updatePoint, { pointLoading, pointError }] = useMutation(
+        UPDATE_POINT,
+        {
+          refetchQueries: [{ query: CURRENT_USER }],
+        }
+    );
+
+    if (pointLoading || pointError) return null;
+
+    function checkAnswer(questionId, answer, answersList) {
+        if (answersList[questionId] === answer) {
+            setDisabled(true);
+            updatePoint({
+                variables: {
+                    point: 10,
+                },
+            });
+            return true;
+        } else {
+            setDisabled(true);
+            updatePoint({
+                variables: {
+                    point: -10,
+                },
+            });
+            return false;
+        }
+    }
     
     const [toggle, setToggle] = useState("");
-
+    // let toggle;
     function clickHandler(){
-        if (checkAnswer(question._id, option.title, answersList, setDisabled)){
-            setToggle("green"); 
+        if (checkAnswer(question._id, option.title, answersList)){
+            setToggle("green");
         }else{
             setToggle("red");
         }
