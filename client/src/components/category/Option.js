@@ -7,7 +7,7 @@ export default ({checkAnswer, question, option, answersList, disabled, setDisabl
 
     function clickHandler(){
         if (checkAnswer(question._id, option.title, answersList, setDisabled)){
-            setToggle("green");
+            setToggle("green"); 
         }else{
             setToggle("red");
         }
@@ -15,17 +15,19 @@ export default ({checkAnswer, question, option, answersList, disabled, setDisabl
 
     return (
         <li className="quiz-list-item">
-            <div>
-                
+            <div className="input-div">
+                <input
+                    disabled={disabled}
+                    type="radio"
+                    id={option._id}
+                    name={question.title}
+                    value={option.title}
+                    onClick={clickHandler}/>
+                <label className={toggle} htmlFor={option._id}>
+                    {option.title}<br></br>
+                </label>
+
             </div>
-            <input
-                disabled={disabled}
-                type="radio"
-                id={option._id}
-                name={question.title}
-                value={option.title}
-                onClick={clickHandler}/>
-            <label className={`options-input ${toggle}`} htmlFor={option._id}>{option.title}</label>
         </li>
     )
 }

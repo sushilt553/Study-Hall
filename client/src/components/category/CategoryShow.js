@@ -74,10 +74,6 @@ export default ({ categoryId }) => {
 
   return (
     <section className="quiz-main">
-
-      <div className="sidebar-div">
-        sidebar You have {user.masteryPoints} Mastery Points
-      </div>
       <div className="quiz-show-page-div">
 
         <div className="quiz-toggle-category">
