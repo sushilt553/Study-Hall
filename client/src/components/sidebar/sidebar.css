@@ -1,15 +1,57 @@
 .sideber-div {
-  padding: 40px;
   padding-top: 90px;
-  /* background-color: #252a37; */
-  background-color: gray;
-  color: white;
+  padding-right: 40px;
+  background: rgb(243, 243, 195);
   width: 10%;
-  /* color: #ed851e; */
-
-  /* border: 1px solid red; */
 }
 
 .sidebar-details {
-  position: fixed;
+  position: sticky;
+  top: 90px;
+  min-width: 10%;
+  padding: 10px;
+}
+
+.user-name-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.welcome-div {
+  margin-right: 10px;
+}
+
+.mastery-points-div {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mp {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mastery-points {
+  padding: 20px;
+  color: rgb(56, 247, 56);
+  text-align: center;
+  font-size: 40px;
+}
+
+.sidebar-categories-li {
+  margin: 15px 0px 15px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.sidebar-categories-li:hover {
+  color: #28a5dc;
 }

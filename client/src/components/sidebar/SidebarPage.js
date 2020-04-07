@@ -10,17 +10,29 @@ export default ({ user }) => {
   if (!data || loading || error) return null;
 
   const categoriesList = data.categories.map((category) => (
-    <li key={category._id}>
-      <Link to={`/category/${category._id}`}>{category.name}</Link>
+    <li className="sidebar-categories-li" key={category._id}>
+      <Link className="sidebar-categories-link" to={`/category/${category._id}`}>{category.name}</Link>
     </li>
   ));
 
   return (
     <div className="sideber-div">
       <div className="sidebar-details">
-        <p>Welcome {user.username}</p>
-        {user.masteryPoints}
-        <ul>{categoriesList}</ul>
+        <div className="user-name-div">
+          <div className="welcome-div">
+            <p>Welcome</p>
+          </div>
+          <div className="user-name">
+            <p>{user.username}</p>
+          </div>
+        </div>
+        <div className="mastery-points-div">
+          <p className="mp">Mastery Points</p>
+          <p className="mastery-points">{user.masteryPoints}</p>
+        </div>
+        <div className="sidebar-categories-div">
+          <ul className="sidebar-categories-ul">{categoriesList}</ul>
+        </div>
       </div>
     </div>
   );
