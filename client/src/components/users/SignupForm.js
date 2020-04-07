@@ -22,10 +22,11 @@ export default ({ close }) => {
         localStorage.setItem("token", signup.token);
         cache.writeQuery({ query: IS_LOGGED_IN, data: { isLoggedIn: true } });
         history.push("/home");
+        close();
       }
     },
     onError() {
-      setErrorMessage("Please enter a valid username and password");
+      setErrorMessage("Username already taken");
     },
     refetchQueries: [{ query: CURRENT_USER }],
   });
@@ -41,6 +42,7 @@ export default ({ close }) => {
         localStorage.setItem("token", login.token);
         cache.writeQuery({ query: IS_LOGGED_IN, data: { isLoggedIn: true } });
         history.push("/home");
+        close();
       }
     },
     refetchQueries: [{ query: CURRENT_USER }],
@@ -48,7 +50,6 @@ export default ({ close }) => {
 
   function demoLogin() {
     login();
-    close();
   }
 
   return (
@@ -67,7 +68,6 @@ export default ({ close }) => {
           onSubmit={(e) => {
             e.preventDefault();
             signup();
-            close();
           }}
         >
           <div>
@@ -88,6 +88,7 @@ export default ({ close }) => {
               value={password}
               placeholder="Password"
               required
+              minLength="7"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
