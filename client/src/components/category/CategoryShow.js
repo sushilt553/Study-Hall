@@ -77,7 +77,6 @@ export default ({ categoryId }) => {
 
         <div className="quiz-toggle-category">
           <h1 className="quiz-category">{data.category.name}</h1>
-          <div className={toggle}>{toggle}</div>
         </div>
 
         <div className="quiz-order-list-div">
