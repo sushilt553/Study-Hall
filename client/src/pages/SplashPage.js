@@ -4,7 +4,6 @@ import Rise from "./assets/images/rise_to_your_challenge.jpeg";
 import Floor from "./assets/images/floor_study.jpeg";
 import Desktop from "./assets/images/desktop_study.png";
 import Tree from "./assets/images/info_tree.png";
-import Header from "./assets/images/learning_header2.jpeg";
 
 export default () => {
   return (
@@ -20,11 +19,6 @@ export default () => {
           <p className="header-statement2">
             Proven by decades of cognitive science.
           </p>
-          <div className="header-img-container">
-            <div className="header-img">
-              {/* <img src={Header} alt="header" /> */}
-            </div>
-          </div>
         </div>
         <div className="panel-container">
           <div className="img-container">

@@ -12,7 +12,7 @@ import "./assets/navbar.css";
 export default () => {
   const [modal, setModal] = useState(null);
 
-  const { data, loading, error } = useQuery(IS_LOGGED_IN);
+  const { data } = useQuery(IS_LOGGED_IN);
 
   if (!data) return null;
 
@@ -31,8 +31,10 @@ export default () => {
       <div className="modal-component">
         {modal && (
           <Modal
-            component={modal === "signup" ? SignupForm : LoginForm} modalString={modal}
-            setModal={setModal} close={() => setModal(null) }
+            component={modal === "signup" ? SignupForm : LoginForm}
+            modalString={modal}
+            setModal={setModal}
+            close={() => setModal(null)}
           />
         )}
       </div>

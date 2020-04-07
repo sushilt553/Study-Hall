@@ -4,7 +4,6 @@ import "./CategoryShow.css";
 import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
 import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
-import "./reset.css";
 
 export default ({ categoryId }) => {
 
