@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     background: linear-gradient(315deg, rgb(31, 170, 235),
-     rgb(243, 243, 195));
+        rgb(243, 243, 195));
     height: 100vh;
     width: 90%;
 
@@ -78,76 +78,87 @@
 }
 
 .l-0 {
-    color: antiquewhite;
-    background-color: rgb(31, 170, 235);
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: rgb(31, 170, 235); */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .l-0:hover {
-    background: linear-gradient(-315deg, rgb(31, 170, 235),
-     rgb(243, 243, 195));
+    /* background: linear-gradient(-315deg, rgb(31, 170, 235),
+     rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .l-1 {
-    color: antiquewhite;
-    background-color: #FFDB58;
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: #FFDB58; */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .l-1:hover {
-    background: linear-gradient(-315deg, #FFDB58,
-        rgb(243, 243, 195));
+    /* background: linear-gradient(-315deg, #FFDB58,
+        rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .l-2 {
-    color: antiquewhite;
-    background-color: rgb(216, 68, 31);
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: rgb(216, 68, 31); */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .l-2:hover {
-    background: linear-gradient(-315deg, rgb(216, 68, 31),
-        rgb(243, 243, 195));
-    /* box-shadow: -10px 10px red; */
+    /* background: linear-gradient(-315deg, rgb(216, 68, 31),
+        rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .r-0 {
-    color: antiquewhite;
-    background-color: #A21ED3;
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: #A21ED3; */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .r-0:hover {
-    background: linear-gradient(315deg, #A21ED3,
-        rgb(243, 243, 195));
+    /* background: linear-gradient(315deg, #A21ED3,
+        rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .r-1 {
-    color: antiquewhite;
-    background-color: rgb(54, 189, 13);
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: rgb(54, 189, 13); */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .r-1:hover {
-    background: linear-gradient(315deg, rgb(54, 189, 13),
-        rgb(243, 243, 195));
+    /* background: linear-gradient(315deg, rgb(54, 189, 13),
+        rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .r-2 {
-    color: antiquewhite;
-    background-color: #ed851e;
-    /* color: #ed851e;
-    background-color: #252a37; */
+    /* color: antiquewhite;
+    background-color: #ed851e; */
+    color: #ed851e;
+    background-color: #252a37;
 }
 
 .r-2:hover {
-    background: linear-gradient(315deg, #ed851e,
-        rgb(243, 243, 195));
+    /* background: linear-gradient(315deg, #ed851e,
+        rgb(243, 243, 195)); */
+    color: #252a37;
+    background-color: #ed851e;
 }
 
 .category-title {
