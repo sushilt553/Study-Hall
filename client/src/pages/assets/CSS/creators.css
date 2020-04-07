@@ -1,16 +1,24 @@
 .social-containers {
   display: flex;
   flex-direction: column;
+  background: white;
+  padding-bottom: 100%;
   padding-top: 100px;
 }
 
 .social-name {
   font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.social-detail-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .links-container {
   display: flex;
-  /* flex-direction: row; */
+  flex-direction: row;
   margin-bottom: 20px;
 
 }
@@ -21,9 +29,9 @@
 }
 
 .GitHub-Logo {
-
+  color: black;
 }
 
 .LinkedIn-Logo {
-
+  color: black;
 }
