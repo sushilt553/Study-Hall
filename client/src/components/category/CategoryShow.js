@@ -5,6 +5,11 @@ import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
 import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
 
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
 export default ({ categoryId }) => {
 
   const [updatePoint, { pointLoading, pointError }] = useMutation(
@@ -52,7 +57,7 @@ export default ({ categoryId }) => {
   if (!data.category || !data.category.questions)
     return <p>Category not found</p>;
 
-  const questionsArr = data.category.questions;
+  const questionsArr = shuffle(data.category.questions);
   const answersList = {};
 
   for (let i = 0; i < questionsArr.length; i++) {
