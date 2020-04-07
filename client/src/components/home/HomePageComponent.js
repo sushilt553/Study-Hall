@@ -26,7 +26,7 @@ export default () => {
     })
 
     const categoryListLeft = leftcategories.map((category, i) =>
-        <li className={`single-category l-${i}`} key={category._id}>
+        <li className="single-category" key={category._id}>
             <Link className="li-link-l" to={`/category/${category._id}`} categories={categories}>
                 {category.name.toUpperCase()}
             </Link>
@@ -34,7 +34,7 @@ export default () => {
     ) 
 
     const categoryListright = rightcategories.map((category, i) =>
-        <li className={`single-category r-${i}`} key={category._id}>
+        <li className="single-category" key={category._id}>
             <Link className="li-link-r" to={`/category/${category._id}`}>
                 {category.name.toUpperCase()}
             </Link>

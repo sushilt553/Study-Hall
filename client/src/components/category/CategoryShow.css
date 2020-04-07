@@ -5,18 +5,12 @@
     width: 90%;
     justify-content: center;
     background-color: rgb(154, 201, 223);
-
-    /* border: 5px solid green; */
 }
 
 .quiz-show-page-div {
     display: flex;
     flex-direction: column;
     width: 90%;
-
-    /* border: 1px solid yellow ;
-    padding: 5px;
-    padding-top: 0; */
 }
 
 .quiz-toggle-category {
@@ -24,45 +18,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #f0c35a; */
     background-color: #ed851e;
     color: #252a37;
     position: sticky;
     top: 60px;
     margin-bottom: 20px;
-    padding: 20px;
-    padding-bottom: 30px;
+    padding: 15px;
+    padding-bottom: 25px;
     border-radius: 15px;
     z-index: 1;
-
     border: 5px solid #252a37;
 }
 
 .quiz-category {
     font-size: 50px;
     font-weight: bold;
-
-    /* border: 1px solid red; */
 }
-
-/* .quiz-order-list-div { */
-
-    /* border: 1px solid green; */
-    /* padding: 5px; */
-/* } */
 
 .quiz-order-list {
     padding: 5px;
-
-    /* border: 1px solid yellow; */
 }
 
 .quiz-header {
     margin-bottom: 200px;
-    /* min-height: 700px; */
-
-    /* border: 1px solid red; */
-    /* padding: 10px; */
 }
 
 .quiz-title {
@@ -73,31 +51,24 @@
     color: rgb(14, 133, 189);
     color: #252a37;
     margin-bottom: 40px;
-    padding: 10px;
+    padding: 15px;
     background-color: white;
     border-radius: 50px;
-
     border: 5px solid #252a37;
 }
 
 .quiz-list-item {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bolder;
     color: #ed851e;
     margin-bottom: 15px;
     align-items: center;
-
-
-    /* border: 5px solid green;
-    padding: 5px; */
 }
 
 .input-div {
     position: relative;
     display: flex;
     justify-content: flex-end;
-
-    /* border: 3px solid yellow; */
 }
 
 .input-div > label {
@@ -108,15 +79,12 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #3a445c;
     border-radius: 50px;
-    padding-left: 60px;
-    
 }
 
 .input-div>label:hover {
-    /* background-color: ; */
     transform: translateY(-3px);
 }
 
@@ -126,7 +94,6 @@
     top: 45%;
     left: 3%;
     transform: scale(4);
-
     z-index: -1;
 }
 
@@ -139,8 +106,17 @@
 
 .Correct, .green {
     color: green;
+    color: rgb(56, 247, 56);
 }
 
 .Incorrect, .red {
     color: red;
+}
+
+.Correct, .Incorrect {
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 50px;
+    background-color: #252a37;
 }
