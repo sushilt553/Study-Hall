@@ -18,7 +18,6 @@ export default ({ categoryId }) => {
 
   function checkAnswer(questionId, answer, answersList, setDisabled) {
     if (answersList[questionId] === answer) {
-      setToggle("Correct");
       setDisabled(true);
       updatePoint({
         variables: {
@@ -27,7 +26,6 @@ export default ({ categoryId }) => {
       });
       return true;
     } else {
-      setToggle("Incorrect");
       setDisabled(true);
       updatePoint({
         variables: {
@@ -37,8 +35,6 @@ export default ({ categoryId }) => {
       return false;
     }
   }
-
-  const [toggle, setToggle] = useState("");
 
   const { data, loading, error } = useQuery(FETCH_CATEGORY, {
     variables: {
@@ -59,13 +55,12 @@ export default ({ categoryId }) => {
     answersList[questionsArr[i]._id] = questionsArr[i].answer.title;
   }
 
-  const questionsList = data.category.questions.map((question, idx) => (
+  const questionsList = questionsArr.map((question, idx) => (
     <div className="quiz-header" key={idx}>
       <Question
         answersList={answersList}
         question={question}
         checkAnswer={checkAnswer}
-        setToggle={setToggle}
         key={question._id}
       />
     </div>
@@ -78,7 +73,6 @@ export default ({ categoryId }) => {
         <div className="quiz-show-page-div">
           <div className="quiz-toggle-category">
             <h1 className="quiz-category">{data.category.name}</h1>
-            <div className={toggle}>{toggle}</div>
           </div>
 
           <div className="quiz-order-list-div">
