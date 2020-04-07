@@ -11,14 +11,12 @@ import CreatorsPage from "./pages/Creators";
 import "./pages/assets/CSS/reset.css";
 import "./App.css";
 import HomePage from "./pages/HomePage";
-import Sidebar from './components/sidebar/Sidebar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <ProtectedRoute component={Sidebar} />
         <Switch>
           <ProtectedRoute
             path={`/category/:categoryId`}
