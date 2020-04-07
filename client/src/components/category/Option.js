@@ -13,9 +13,11 @@ export default ({checkAnswer, question, option, answersList, disabled, setDisabl
         }
     }
 
-
     return (
         <li className="quiz-list-item">
+            <div>
+                
+            </div>
             <input
                 disabled={disabled}
                 type="radio"
@@ -23,7 +25,7 @@ export default ({checkAnswer, question, option, answersList, disabled, setDisabl
                 name={question.title}
                 value={option.title}
                 onClick={clickHandler}/>
-            <label className={toggle} htmlFor={option._id}>{option.title}</label>
+            <label className={`options-input ${toggle}`} htmlFor={option._id}>{option.title}</label>
         </li>
     )
 }
