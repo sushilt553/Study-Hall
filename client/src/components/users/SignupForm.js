@@ -25,6 +25,7 @@ export default ({close}) => {
                     cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
                     history.push("/home");
                     setErrorMessage("");
+                    close();
                 }
             },
             onError() {
@@ -51,6 +52,7 @@ export default ({close}) => {
             cache.writeQuery({query: IS_LOGGED_IN, data: {isLoggedIn: true}})
             history.push("/home");
             setErrorMessage("");
+            close();
         }
         },
         refetchQueries: [{ query: CURRENT_USER }],
@@ -58,7 +60,6 @@ export default ({close}) => {
 
     function demoLogin() {
         login();
-        if (errorMessage !== "") close();
     }
 
     return (
@@ -79,7 +80,6 @@ export default ({close}) => {
                     onSubmit={(e) => {
                     e.preventDefault();
                     signup();
-                    if (errorMessage !== "") close();
                 }}>
                     <div>
                         <input
