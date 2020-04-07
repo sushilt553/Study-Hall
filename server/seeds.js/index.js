@@ -21,6 +21,11 @@ const seedAnswers = require("./Answers");
 const seedOptions = require("./Options");
 const seedCategories = require("./Categories");
 
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+    return array;
+}
+
 const seedDatabase = async() => {
     // const hashedPassword = await bcrypt.hash('hunter12', 10);
     // const user = new User({username: 'test123', password: hashedPassword});
@@ -59,13 +64,15 @@ const seedDatabase = async() => {
             for (let k = 0; k < 4; k++) {
                 optionsArr.shift();
             }
+
+            shuffledOptions = shuffle(options);
             answer = answersArr[0];
             title = seedQuestions[0];
 
             seedQuestions.shift();
             answersArr.shift();
 
-            const question = new Question({ title, answer, category, options })
+            const question = new Question({ title, answer, category, options: shuffledOptions })
             await question.save();
         };
     };
