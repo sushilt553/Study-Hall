@@ -1,10 +1,15 @@
 .sideber-div {
   padding: 40px;
   padding-top: 90px;
-  background-color: #252a37;
+  /* background-color: #252a37; */
+  background-color: gray;
   color: white;
   width: 10%;
   /* color: #ed851e; */
 
   /* border: 1px solid red; */
+}
+
+.sidebar-details {
+  position: fixed;
 }
