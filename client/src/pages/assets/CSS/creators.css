@@ -13,7 +13,6 @@
 }
 
 .social-details-container {
-  display: flex;
   margin-left: 30px;
 
 }
@@ -32,6 +31,10 @@
   font-weight: 400;
   margin-right: 10px;
 
+}
+
+.link-name:hover {
+  color: #28a5dc;
 }
 
 .link-logo {
