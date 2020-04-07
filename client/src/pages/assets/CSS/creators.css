@@ -1,0 +1,29 @@
+.social-containers {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.social-name {
+  font-size: 22px;
+}
+
+.links-container {
+  display: flex;
+  /* flex-direction: row; */
+  margin-bottom: 20px;
+
+}
+
+.link-name {
+  color: #ed851e;
+
+}
+
+.GitHub-Logo {
+
+}
+
+.LinkedIn-Logo {
+
+}
