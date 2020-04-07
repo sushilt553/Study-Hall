@@ -4,9 +4,9 @@ import "./CategoryShow.css";
 import { FETCH_CATEGORY, CURRENT_USER } from "../../graphql/queries";
 import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
+import SideBar from "../sidebar/Sidebar";
 
 export default ({ categoryId }) => {
-
   const [updatePoint, { pointLoading, pointError }] = useMutation(
     UPDATE_POINT,
     {
@@ -72,19 +72,20 @@ export default ({ categoryId }) => {
   ));
 
   return (
-    <section className="quiz-main">
-      <div className="quiz-show-page-div">
+    <div className="category-container">
+      <SideBar />
+      <section className="quiz-main">
+        <div className="quiz-show-page-div">
+          <div className="quiz-toggle-category">
+            <h1 className="quiz-category">{data.category.name}</h1>
+            <div className={toggle}>{toggle}</div>
+          </div>
 
-        <div className="quiz-toggle-category">
-          <h1 className="quiz-category">{data.category.name}</h1>
-          <div className={toggle}>{toggle}</div>
+          <div className="quiz-order-list-div">
+            <ol className="quiz-order-list">{questionsList}</ol>
+          </div>
         </div>
-
-        <div className="quiz-order-list-div">
-          <ol className="quiz-order-list">{questionsList}</ol>
-        </div>
-
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };

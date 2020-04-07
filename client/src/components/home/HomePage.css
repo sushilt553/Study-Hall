@@ -1,7 +1,12 @@
+.homepage-container {
+    display: flex;
+}
+
 .categories-div {
     position: relative;
     padding-top: 90px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background: linear-gradient(315deg, rgb(31, 170, 235),
         rgb(243, 243, 195));
