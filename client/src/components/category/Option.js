@@ -23,10 +23,9 @@ export default ({checkAnswer, question, option, answersList, disabled, setDisabl
                     name={question.title}
                     value={option.title}
                     onClick={clickHandler}/>
-                <label className={toggle} htmlFor={option._id}>
+                <label className={`label-input ${toggle}`} htmlFor={option._id}>
                     {option.title}<br></br>
                 </label>
-
             </div>
         </li>
     )
