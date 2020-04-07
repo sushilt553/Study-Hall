@@ -21,6 +21,8 @@ export default ({ close }) => {
         localStorage.setItem("token", login.token);
         cache.writeQuery({ query: IS_LOGGED_IN, data: { isLoggedIn: true } });
         history.push("/home");
+        setErrorMessage("");
+        close();
       }
     },
     onError() {
@@ -45,7 +47,6 @@ export default ({ close }) => {
         onSubmit={(e) => {
           e.preventDefault();
           login();
-          close();
         }}
       >
         <div>

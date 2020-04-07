@@ -6,13 +6,6 @@ import Question from "./Question";
 import { UPDATE_POINT } from "../../graphql/mutations";
 
 export default ({ categoryId }) => {
-  const { data: dataR, error: errorR, loading: loadingR } = useQuery(
-    CURRENT_USER
-  );
-
-  if (!dataR || loadingR || errorR) return null;
-
-  const user = dataR.me;
 
   const [updatePoint, { pointLoading, pointError }] = useMutation(
     UPDATE_POINT,
@@ -80,12 +73,18 @@ export default ({ categoryId }) => {
 
   return (
     <section className="quiz-main">
-      <>You have {user.masteryPoints} Mastery Points</>
-      <div className="quiz-toggle-category">
-        <h1 className="quiz-category">{data.category.name}</h1>
-        <div className={toggle}>{toggle}</div>
+      <div className="quiz-show-page-div">
+
+        <div className="quiz-toggle-category">
+          <h1 className="quiz-category">{data.category.name}</h1>
+          <div className={toggle}>{toggle}</div>
+        </div>
+
+        <div className="quiz-order-list-div">
+          <ol className="quiz-order-list">{questionsList}</ol>
+        </div>
+
       </div>
-      <ol className="quiz-order-list">{questionsList}</ol>
     </section>
   );
 };
