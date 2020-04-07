@@ -2,36 +2,40 @@
   display: flex;
   flex-direction: column;
   background: white;
-  padding-bottom: 100%;
+  padding-bottom: 20%;
   padding-top: 100px;
 }
 
 .social-name {
   font-size: 22px;
-  margin-bottom: 10px;
+  font-weight: 900;
+  margin: 0px 0px 10px 30px;
 }
 
-.social-detail-container {
+.social-details-container {
   display: flex;
-  flex-direction: column;
+  margin-left: 30px;
+
 }
 
 .links-container {
+  margin-bottom: 60px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  align-items: center;
 
 }
 
 .link-name {
   color: #ed851e;
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 10px;
 
 }
 
-.GitHub-Logo {
+.link-logo {
   color: black;
-}
-
-.LinkedIn-Logo {
-  color: black;
+  font-size: 30px;
+  margin-right: 20px;
 }
