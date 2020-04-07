@@ -6,6 +6,7 @@ import CategoryShowPage from './pages/CategoryShowPage';
 import ErrorPage from './pages/ErrorPage';
 import SplashPage from './pages/SplashPage';
 import Navbar from './pages/Navbar';
+import Sidebar from './components/sidebar/Sidebar';
 
 import './App.css';
 import HomePage from './pages/HomePage';
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <ProtectedRoute component={Sidebar} />
         <Switch>
           <ProtectedRoute path={`/category/:categoryId`} component={CategoryShowPage} />
           <ProtectedRoute path={`/home`} component={HomePage} />         

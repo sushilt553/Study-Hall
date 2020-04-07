@@ -1,21 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {useQuery} from "@apollo/react-hooks";
+import { CURRENT_USER } from '../../graphql/queries';
+import SidebarPage from './SidebarPage';
 
-export default ({user, categories}) => {
+export default () => {
 
-    const categoriesList = categories.map(category => 
-        <li key={category._id}><Link to={`/category/${category._id}`}>{category.name}</Link></li>
-        )
+    const { data: dataR, loading: loadingR, error: errorR } = useQuery(CURRENT_USER);
+
+    if (loadingR) return <p>Loading...</p>
+    if (errorR) return <p>ERROR</p>
+    if (!dataR) return <p>Not found</p>
+
+    const user = dataR.me;
 
     return (
-        <div className="sidebar-div">
-            Welcome {user.username}
-            <br/>
-            MasteryPoints
-            {user.masteryPoints}
-            <ul>
-                {categoriesList}
-            </ul>
-        </div>
+        <SidebarPage user={user} />
     )
 }

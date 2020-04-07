@@ -1,25 +1,10 @@
 import React from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import {Link} from 'react-router-dom';
-import { FETCH_CATEGORIES, CURRENT_USER } from '../../graphql/queries';
-import Sidebar from '../sidebar/Sidebar';
+import { FETCH_CATEGORIES } from '../../graphql/queries';
 import "./HomePage.css";
 
 export default () => {
-
-
-    // const { data: dataR, loading: loadingR, error: errorR } = useQuery(
-    //     CURRENT_USER,
-    //     {
-    //         fetchPolicy: 'network-only'
-    //     }
-    //     );
-
-    // if (loadingR) return <p>Loading...</p>
-    // if (errorR) return <p>ERROR</p>
-    // if (!dataR) return <p>Not found</p>
-
-    // const user = dataR.me;
 
     const {data, loading, error} = useQuery(FETCH_CATEGORIES)
 
@@ -42,7 +27,7 @@ export default () => {
 
     const categoryListLeft = leftcategories.map((category, i) =>
         <li className={`single-category l-${i}`} key={category._id}>
-            <Link className="li-link-l" to={`/category/${category._id}`}>
+            <Link className="li-link-l" to={`/category/${category._id}`} categories={categories}>
                 {category.name.toUpperCase()}
             </Link>
         </li>
@@ -58,9 +43,6 @@ export default () => {
 
     return (
         <div className="categories-div">
-            <div className="sidebar">
-                {/* <Sidebar user={user} categories={categories}/> */}
-            </div>
                 <div className="categories-list-div">
                     <h1 className="category-title">Quiz Categories</h1>
                     <ul className="categories-list-left">
