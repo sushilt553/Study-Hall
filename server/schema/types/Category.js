@@ -25,8 +25,9 @@ const resolvers = {
         }
     },
     Category: {
-        questions(parentValue, _) {
-            return Question.find({category: parentValue._id});
+        questions: async(parentValue, _) => {
+            const questions = await Question.find({category: parentValue._id});
+            return questions;
         }
     }
 }

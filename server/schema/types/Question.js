@@ -79,7 +79,7 @@ const resolvers = {
         options: async(parentValue, _) => {
             const question = parentValue;
             await question.populate('options').execPopulate();
-            return question.options;
+            return question.options
         },
         answer: async(parentValue, _) => {
             const question = parentValue;
