@@ -9,6 +9,7 @@ import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
 import CreatorsPage from "./pages/Creators";
 import "./pages/assets/CSS/reset.css";
+import "./App.css";
 import HomePage from "./pages/HomePage";
 import Sidebar from './components/sidebar/Sidebar';
 
