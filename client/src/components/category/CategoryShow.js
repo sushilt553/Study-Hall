@@ -7,13 +7,6 @@ import { UPDATE_POINT } from "../../graphql/mutations";
 import "./reset.css";
 
 export default ({ categoryId }) => {
-  const { data: dataR, error: errorR, loading: loadingR } = useQuery(
-    CURRENT_USER
-  );
-
-  if (!dataR || loadingR || errorR) return null;
-
-  const user = dataR.me;
 
   const [updatePoint, { pointLoading, pointError }] = useMutation(
     UPDATE_POINT,
