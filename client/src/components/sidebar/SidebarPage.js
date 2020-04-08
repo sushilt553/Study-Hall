@@ -23,7 +23,7 @@ export default ({ user }) => {
             <p>Welcome</p>
           </div>
           <div className="user-name">
-            <p>{user.username}</p>
+            <p>{user.username[0].toUpperCase() + user.username.slice(1)}!</p>
           </div>
         </div>
         <div className="mastery-points-main-div">
