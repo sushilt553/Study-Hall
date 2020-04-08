@@ -26,9 +26,15 @@ export default ({ user }) => {
             <p>{user.username}</p>
           </div>
         </div>
-        <div className="mastery-points-div">
-          <p className="mp">Mastery Points</p>
-          <p className="mastery-points">{user.masteryPoints}</p>
+        <div className="mastery-points-main-div">
+          <div className="mp-div">
+            <p>Mastery Points</p>
+          </div>
+          <div className="mastery-points--div">
+            <div className="mastery-points">
+              <strong>{user.masteryPoints}</strong>
+            </div>
+          </div>
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>

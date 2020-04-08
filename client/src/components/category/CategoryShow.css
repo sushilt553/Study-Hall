@@ -6,15 +6,16 @@
     padding: 10px;
     padding-top: 70px;
     display: flex;
-    width: 90%;
+    width: 95%;
     justify-content: center;
     background-color: rgb(154, 201, 223);
+    background-color: rgba(229, 243, 178, 0.8);
 }
 
 .quiz-show-page-div {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
 }
 
 .quiz-toggle-category {
@@ -35,7 +36,7 @@
 }
 
 .quiz-category {
-    font-size: 50px;
+    font-size: 5vw;
     font-weight: bold;
 }
 
@@ -50,11 +51,11 @@
 .quiz-title {
     cursor: default;
     text-align: center;
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: bolder;
     color: rgb(14, 133, 189);
     color: #252a37;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     padding: 20px;
     background-color: white;
     border-radius: 50px;
@@ -62,7 +63,7 @@
 }
 
 .quiz-list-item {
-    font-size: 40px;
+    font-size: 2vw;
     font-weight: bolder;
     color: #ed851e;
     margin-bottom: 15px;
@@ -101,30 +102,6 @@
     left: 3%;
     transform: scale(4);
     z-index: -1;
-}
-
-.Correct,
-.Incorrect {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bolder;
-}
-
-.Correct, .green {
-    color: green;
-    color: rgb(56, 247, 56);
-}
-
-.Incorrect, .red {
-    color: red;
-}
-
-.Correct, .Incorrect {
-    padding: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
-    border-radius: 50px;
-    background-color: #252a37;
 }
 
 .green {

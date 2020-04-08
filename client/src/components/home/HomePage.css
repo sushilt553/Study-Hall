@@ -2,13 +2,10 @@
     display: flex;
 }
 
-.categories-div {
+.categories-main-div {
     padding-top: 90px;
-    display: flex;
-    flex-direction: column;
     background: linear-gradient(315deg, rgb(31, 170, 235),
-        rgb(243, 243, 195));
-    height: 100vh;
+        rgb(243, 243, 195));    
     width: 90%;
 }
 
@@ -16,7 +13,7 @@
     display: flex;
     justify-content: center;
     width: 99%;
-    height: 80vh;
+    height: 75vh;
 }
 
 .categories-list-left,
@@ -33,10 +30,9 @@
 
 .single-category {
     margin: 10px;
-    width: 90%;
-    height: 150px;
-    max-height: 25%;
-    font-size: 40px;
+    width: 95%;
+    height: 25%;
+    font-size: 3.5vw;
     font-weight: bolder;
     letter-spacing: 10px;
     word-spacing: 20px;
@@ -73,6 +69,7 @@
 }
 
 .category-title-div {
+    width: 99%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -81,7 +78,7 @@
 .category-title {
     cursor: default;
     padding: 10px;
-    font-size: 60px;
+    font-size: 5vw;
     font-style: italic;
     color: #ed851e;
     font-weight: bolder;
