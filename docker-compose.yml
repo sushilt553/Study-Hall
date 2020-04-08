@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    web:
+        build: .
+        image: sushilt553/studyhall
+        ports: 
+            - "5000:5000"
+        environment: 
+            - MONGO_URI=mongodb+srv://Cross:7wKJhRQZXOM9yGhj@study-hall-zdxxo.mongodb.net/test?retryWrites=true&w=majority
+            - SECRET_OR_KEY=BAC865CC76B3E343EC3CAF58812AE
+            - NODE_ENV=production
+
+
+    
