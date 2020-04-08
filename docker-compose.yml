@@ -2,7 +2,7 @@ version: '3'
 
 services:
     web:
-        build: ./server
+        build: .
         image: sushilt553/studyhall
         ports: 
             - "5000:5000"

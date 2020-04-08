@@ -2,13 +2,13 @@ FROM node:alpine as builder
 
 WORKDIR /app
 
-COPY ../client/package*.json ./
+COPY client/package*.json ./
 
 ENV NODE_ENV=production
 
 RUN npm install
 
-COPY ../client .
+COPY ./client .
 
 RUN npm run build
 
@@ -16,13 +16,13 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY server/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./server .
 
-COPY --from=builder /app/build /app/build
+COPY --from=builder /app/build ./build
 
 EXPOSE 5000
 

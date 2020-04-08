@@ -1,1 +1,5 @@
-/docker-compose.yml
+*docker-compose*
+*Dockerfile*
+server/config/keys_dev.js
+client/node_modules/
+server/node_modules/
