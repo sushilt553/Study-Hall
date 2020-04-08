@@ -1,5 +1,7 @@
 .splash-container {
   background: white;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
 .header-container {
@@ -7,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  background: #575a5a27;
 }
 
 .header-statement1 {
@@ -32,9 +34,8 @@
 .panel-container {
   display: flex;
   flex-direction: row;
-  /* margin-bottom: 30px; */
+  background-color: beige;
   align-items: center;
-
 }
 
 .img-container {
@@ -43,19 +44,21 @@
 }
 
 .panel-details {
-  width: 50vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0px 50px 0px 50px;
+  box-sizing: border-box;
+  padding: 0px 20px 0px 20px;
 }
 
 .panel-title {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .panel-paragraph {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
+  line-height: 1.5;
 
 }

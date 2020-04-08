@@ -1,7 +1,7 @@
 import React from "react";
 import "./assets/CSS/splash.css";
-import Rise from "./assets/images/rise_to_your_challenge.jpeg";
-import Floor from "./assets/images/floor_study.jpeg";
+import Rise2 from "./assets/images/rise2.jpg";
+import Study3 from "./assets/images/study_group3.jpg";
 import Desktop from "./assets/images/desktop_study.png";
 import Tree from "./assets/images/info_tree.png";
 
@@ -22,7 +22,7 @@ export default () => {
         </div>
         <div className="panel-container">
           <div className="img-container">
-            <img src={Rise} alt="rise" />
+            <img src={Rise2} alt="rise2" />
           </div>
           <div className="panel-details">
             <h3 className="panel-title">
@@ -50,7 +50,7 @@ export default () => {
             </p>
           </div>
           <div className="img-container">
-            <img src={Floor} alt="floor" />
+            <img src={Study3} alt="study3" />
           </div>
         </div>
         <div className="panel-container">
