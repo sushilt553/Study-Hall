@@ -48,13 +48,15 @@ export default () => {
   return (
     <div className="homepage-container">
       <SideBar />
-      <div className="categories-div">
-        <div className="category-title-div">
-        <h1 className="category-title">Quiz Categories</h1>
-        </div>
-        <div className="categories-list-div">
-          <ul className="categories-list-left">{categoryListLeft}</ul>
-          <ul className="categories-list-right">{categoryListright}</ul>
+      <div className="categories-main-div">
+        <div className="categories--div">
+          <div className="category-title-div">
+            <h1 className="category-title">Quiz Categories</h1>
+          </div>
+          <div className="categories-list-div">
+            <ul className="categories-list-left">{categoryListLeft}</ul>
+            <ul className="categories-list-right">{categoryListright}</ul>
+          </div>
         </div>
       </div>
     </div>
