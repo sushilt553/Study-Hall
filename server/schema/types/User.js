@@ -44,6 +44,9 @@ const resolvers = {
         updatePoint: async(_, {point}, context) => {
             const user = await context.user;
             user.masteryPoints += point ;
+             if (user.masteryPoints < 0){
+                 user.masteryPoints = 0;
+             }
             await user.save();
             return user;
         }
