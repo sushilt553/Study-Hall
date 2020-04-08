@@ -29,7 +29,7 @@ const createClient = async() => {
         console.log("\x1b[31m%s\x1b[0m", "[Network error]:", networkError);
     });
     let uri = "http://localhost:5000/graphql";
-    if (process.env.NODE_ENV == "production") {
+    if (process.env.NODE_ENV === "production") {
         uri = "/graphql";
     }
     const httpLink = new HttpLink({
