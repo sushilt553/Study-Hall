@@ -11,7 +11,12 @@ export default ({ user }) => {
 
   const categoriesList = data.categories.map((category) => (
     <li className="sidebar-categories-li" key={category._id}>
-      <Link className="sidebar-categories-link" to={`/category/${category._id}`}>{category.name}</Link>
+      <Link
+        className="sidebar-categories-link"
+        to={`/category/${category._id}`}
+      >
+        {category.name}
+      </Link>
     </li>
   ));
 
@@ -23,7 +28,11 @@ export default ({ user }) => {
             <p>Welcome</p>
           </div>
           <div className="user-name">
-            <p>{user.username[0].toUpperCase() + user.username.slice(1)}!</p>
+            <p>
+              {user.username[0].toUpperCase() +
+                user.username.slice(1).toLowerCase()}
+              !
+            </p>
           </div>
         </div>
         <div className="mastery-points-main-div">
