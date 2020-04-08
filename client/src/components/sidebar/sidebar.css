@@ -1,15 +1,95 @@
 .sideber-div {
-  padding: 40px;
   padding-top: 90px;
-  /* background-color: #252a37; */
-  background-color: gray;
-  color: white;
+  padding-right: 40px;
+  background: rgb(243, 243, 195);
   width: 10%;
-  /* color: #ed851e; */
-
-  /* border: 1px solid red; */
+  border-right: 3px solid #252a37;
 }
 
 .sidebar-details {
-  position: fixed;
+  position: sticky;
+  top: 90px;
+  width: 100%;
+  height: 80vh;
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.user-name-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.45vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.welcome-div {
+  margin-right: 10px;
+}
+
+.mastery-points-main-div {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 95%;
+  height: 35%;
+  font-size: 1.45vw;
+}
+
+.mp-div {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.mastery-points--div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 85%;
+  height: 50%;
+  padding: 10px;
+  font-size: 3vw;
+}
+
+.mastery-points {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(56, 247, 56);
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: #252a37;
+}
+
+.mastery-points:hover {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* .sidebar-categories-div {
+  border: 1px solid purple;
+} */
+
+.sidebar-categories-li {
+  margin: 15px 0px 15px 0px;
+  font-size: 1.6vw;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.sidebar-categories-li:hover {
+  color: #28a5dc;
 }
