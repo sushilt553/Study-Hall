@@ -3,35 +3,13 @@ version: '3'
 services:
     web:
         build: ./server
-        image: studyhallserver
+        image: sushilt553/studyhall
         ports: 
-            - 80:5000
+            - "5000:5000"
         environment: 
             - MONGO_URI=mongodb+srv://Cross:7wKJhRQZXOM9yGhj@study-hall-zdxxo.mongodb.net/test?retryWrites=true&w=majority
-        networks:
-            - studyhallapp
-    
-    app:
-        build: ./client
-        image: studyhallclient
-        ports:
-            - 80:3000
-        networks: 
-            - studyhallapp
+            - SECRET_OR_KEY=BAC865CC76B3E343EC3CAF58812AE
+            - NODE_ENV=production
 
-    db:
-        image: mongo:3.0.15
-        volumes:
-            - mongo-db:/data/db
-        networks:
-            studyhallapp:
-                aliases: 
-                    - "mongo_db"
-
-networks:
-    studyhallapp:
-        driver: bridge
-volumes:
-    mongo-db:
 
     

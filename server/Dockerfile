@@ -1,13 +1,30 @@
-FROM node:8.15-alpine
+FROM node:alpine as builder
 
-WORKDIR /app/study-hall-server
+WORKDIR /app
 
-COPY package.json /app/study-hall-server
+COPY ../client/package*.json ./
+
+ENV NODE_ENV=production
 
 RUN npm install
 
-COPY . /app/study-hall-server
+COPY ../client .
+
+RUN npm run build
+
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+COPY --from=builder /app/build /app/build
+
+EXPOSE 5000
 
 CMD ["npm", "start"]
 
-EXPOSE 5000
