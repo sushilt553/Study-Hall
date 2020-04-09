@@ -1,7 +1,7 @@
 import React from 'react';
 import {useQuery} from "@apollo/react-hooks";
 import { CURRENT_USER } from '../../graphql/queries';
-import SidebarPage from './SidebarPage';
+import SidebarCategories from './SidebarCategories';
 
 export default () => {
 
@@ -14,6 +14,6 @@ export default () => {
     const user = dataR.me;
 
     return (
-        <SidebarPage user={user} />
+        <SidebarCategories user={user} />
     )
 }

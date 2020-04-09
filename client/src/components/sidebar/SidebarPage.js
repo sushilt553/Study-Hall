@@ -1,24 +1,19 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { Link } from "react-router-dom";
-import { FETCH_CATEGORIES } from "../../graphql/queries";
+import { useMutation } from "@apollo/react-hooks";
+import { CURRENT_USER } from "../../graphql/queries";
+import { RESET_POINT } from '../../graphql/mutations';
 import "./sidebar.css";
 
-export default ({ user }) => {
-  const { data, loading, error } = useQuery(FETCH_CATEGORIES);
+export default ({ user, categoriesList }) => {
 
-  if (!data || loading || error) return null;
+  const [resetPoint, { pointLoading, pointError }] = useMutation(
+    RESET_POINT,
+    {
+      refetchQueries: [{ query: CURRENT_USER }],
+    }
+  );
 
-  const categoriesList = data.categories.map((category) => (
-    <li className="sidebar-categories-li" key={category._id}>
-      <Link
-        className="sidebar-categories-link"
-        to={`/category/${category._id}`}
-      >
-        {category.name}
-      </Link>
-    </li>
-  ));
+  if (pointLoading || pointError) return null;
 
   return (
     <div className="sideber-div">
@@ -29,9 +24,7 @@ export default ({ user }) => {
           </div>
           <div className="user-name">
             <p>
-              {user.username[0].toUpperCase() +
-                user.username.slice(1).toLowerCase()}
-              !
+              {user.username}!
             </p>
           </div>
         </div>
@@ -44,6 +37,17 @@ export default ({ user }) => {
               <strong>{user.masteryPoints}</strong>
             </div>
           </div>
+          <button className="reset-button" onClick={(e) => {
+            e.preventDefault();
+            resetPoint({
+              variables: 
+                {
+                  point: 0,
+                },
+              });
+            }}>
+            Reset Points
+          </button>
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>
