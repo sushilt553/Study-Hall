@@ -50,7 +50,7 @@ export default ({ categoryId }) => {
             <h1 className="quiz-category">{data.category.name}</h1>
           </div>
 
-          <div className="quiz-order-list-div">
+          <div className={`quiz-order-list-div ${data.category.name}`}>
             <ol className="quiz-order-list">{questionsList}</ol>
           </div>
         </div>

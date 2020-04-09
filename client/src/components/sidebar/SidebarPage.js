@@ -4,7 +4,7 @@ import { CURRENT_USER } from "../../graphql/queries";
 import { RESET_POINT } from '../../graphql/mutations';
 import "./sidebar.css";
 
-export default ({ user, categoriesList }) => {
+export default ({ user, categoriesList}) => {
 
   const [resetPoint, { pointLoading, pointError }] = useMutation(
     RESET_POINT,
@@ -14,6 +14,19 @@ export default ({ user, categoriesList }) => {
   );
 
   if (pointLoading || pointError) return null;
+
+  let counter = 0;
+  document.querySelectorAll("[type=radio]").forEach(option => {
+    if(option.disabled) {
+      counter += 1;
+    }
+  })
+
+  let quizCategory;
+  if (document.querySelector(".quiz-category")) {
+    quizCategory = document.querySelector(".quiz-category").innerText ?
+    document.querySelector(".quiz-category").innerText : "";
+  }
 
   return (
     <div className="sideber-div">
@@ -48,6 +61,10 @@ export default ({ user, categoriesList }) => {
             }}>
             Reset Points
           </button>
+          <strong className="attemps-counter">
+            Current quiz: {quizCategory}<br></br><br></br>
+            {counter/4} out of 10
+          </strong>
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>

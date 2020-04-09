@@ -4,15 +4,14 @@ import { CURRENT_USER } from '../../graphql/queries';
 import SidebarCategories from './SidebarCategories';
 
 export default () => {
-
-    const { data: dataR, loading: loadingR, error: errorR } = useQuery(CURRENT_USER);
+    const { data: dataR, loading: loadingR, 
+        error: errorR } = useQuery(CURRENT_USER);
 
     if (loadingR) return <p>Loading...</p>
     if (errorR) return <p>ERROR</p>
     if (!dataR) return <p>Not found</p>
 
     const user = dataR.me;
-
     return (
         <SidebarCategories user={user} />
     )

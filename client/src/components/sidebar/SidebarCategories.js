@@ -6,22 +6,21 @@ import SidebarPage from './SidebarPage';
 
 export default ({user}) => {
 
-const { data, loading, error } = useQuery(FETCH_CATEGORIES);
+    const { data, loading, error } = useQuery(FETCH_CATEGORIES);
 
-if (!data || loading || error) return null;
+    if (!data || loading || error) return null;
 
-const categoriesList = data.categories.map((category) => (
-    <li className="sidebar-categories-li" key={category._id}>
-        <Link
-            className="sidebar-categories-link"
-            to={`/category/${category._id}`}
-        >
-            {category.name}
-        </Link>
-    </li>
-));
-
-return (
-    <SidebarPage user={user} categoriesList={categoriesList} />
-)
+    const categoriesList = data.categories.map((category) => (
+        <li className="sidebar-categories-li" key={category._id}>
+            <Link
+                className="sidebar-categories-link"
+                to={`/category/${category._id}`}
+            >
+                {category.name}
+            </Link>
+        </li>
+    ));
+    return (
+        <SidebarPage user={user} categoriesList={categoriesList} />
+    )
 }
