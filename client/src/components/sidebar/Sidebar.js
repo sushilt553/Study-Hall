@@ -12,7 +12,6 @@ export default ({attempts, setAttempts, home}) => {
     if (!dataR) return <p>Not found</p>
 
     const user = dataR.me;
-
     return (
         <SidebarCategories user={user} attempts={attempts} setAttempts={setAttempts} home={home}/>
     )

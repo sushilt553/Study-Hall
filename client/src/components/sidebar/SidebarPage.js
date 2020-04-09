@@ -15,7 +15,7 @@ export default ({ user, categoriesList, attempts, home }) => {
   if (home) {
     showAttempt = null;
   } else {
-    showAttempt = <p>{attempts} out of 10</p>;
+    showAttempt = <strong className="attemps-counter">{attempts} out of 10</strong>;
   }
 
   return (

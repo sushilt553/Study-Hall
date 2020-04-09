@@ -6,9 +6,9 @@ import SidebarPage from './SidebarPage';
 
 export default ({user, attempts, setAttempts, home}) => {
 
-const { data, loading, error } = useQuery(FETCH_CATEGORIES);
+    const { data, loading, error } = useQuery(FETCH_CATEGORIES);
 
-if (!data || loading || error) return null;
+    if (!data || loading || error) return null;
 
 const categoriesList = data.categories.map((category) => (
     <li className="sidebar-categories-li" key={category._id}>

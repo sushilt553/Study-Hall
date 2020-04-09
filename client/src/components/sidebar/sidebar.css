@@ -1,6 +1,7 @@
 .sideber-div {
     padding-top: 90px;
-    padding-right: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
     background: rgb(243, 243, 195);
     width: 20%;
     border-right: 3px solid #252a37;
@@ -11,8 +12,6 @@
     top: 90px;
     width: 100%;
     height: 80vh;
-    padding: 10px;
-    margin-left: 5px;
 }
 
 .user-name-div {
@@ -29,12 +28,12 @@
 }
 
 .mastery-points-main-div {
-    margin-bottom: 10px;
+    margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 95%;
-    height: 35%;
+    width: 100%;
+    height: 30vh;
     font-size: 1.45vw;
 }
 
@@ -48,10 +47,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 85%;
-    height: 50%;
     padding: 10px;
-    font-size: 3vw;
+    font-size: 4.5vw;
 }
 
 .mastery-points {
@@ -61,14 +58,14 @@
     align-items: center;
     text-align: center;
     color: rgb(56, 247, 56);
-    height: 100%;
-    width: 50%;
+    height: 14vh;
+    width: 8vw;
     border-radius: 50%;
     background: #252a37;
 }
 
-.mastery-points:hover {
-    animation: spin 6s linear infinite;
+.mastery-points:hover strong {
+  animation: spin 6s linear infinite;
 }
 
 @keyframes spin {
@@ -77,11 +74,6 @@
         transform: rotate(360deg);
     }
 }
-
-
-/* .sidebar-categories-div {
-  border: 1px solid purple;
-} */
 
 .sidebar-categories-li {
     margin: 15px 0px 15px 0px;
@@ -97,8 +89,15 @@
 .reset-button {
   font-weight: bold;
   margin-top: 5px;
+  outline: none;
 }
 
 .reset-button:hover {
     color: #28a5dc;
+}
+
+.attemps-counter {
+  font-size: 1.45vw;
+  font-weight: bold;
+  margin-top: 3vh;
 }
