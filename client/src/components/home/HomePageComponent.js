@@ -47,7 +47,7 @@ export default () => {
 
   return (
     <div className="homepage-container">
-      <SideBar />
+      <SideBar home={true}/>
       <div className="categories-main-div">
         <div className="categories--div">
           <div className="category-title-div">

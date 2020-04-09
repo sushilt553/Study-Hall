@@ -1,15 +1,11 @@
 import React from 'react';
 import OptionsList from './OptionsList';
 
-function shuffle(array) {
-    array.sort(() => Math.random() - 0.5);
-    return array;
-}
-
-export default ({answersList, question}) => {
-    const shuffledOptions = shuffle(question.options)
+export default ({answersList, question, attempts, setAttempts}) => {
+    const shuffledOptions = question.options;
 
     return (
-        <OptionsList shuffledOptions={shuffledOptions} answersList={answersList} question={question}/>
+        <OptionsList setAttempts={setAttempts}
+            attempts={attempts} shuffledOptions={shuffledOptions} answersList={answersList} question={question}/>
     )
 }

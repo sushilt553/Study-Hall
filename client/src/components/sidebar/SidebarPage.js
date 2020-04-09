@@ -1,19 +1,22 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { CURRENT_USER } from "../../graphql/queries";
-import { RESET_POINT } from '../../graphql/mutations';
+import { RESET_POINT } from "../../graphql/mutations";
 import "./sidebar.css";
 
-export default ({ user, categoriesList }) => {
-
-  const [resetPoint, { pointLoading, pointError }] = useMutation(
-    RESET_POINT,
-    {
-      refetchQueries: [{ query: CURRENT_USER }],
-    }
-  );
+export default ({ user, categoriesList, attempts, home }) => {
+  const [resetPoint, { pointLoading, pointError }] = useMutation(RESET_POINT, {
+    refetchQueries: [{ query: CURRENT_USER }],
+  });
 
   if (pointLoading || pointError) return null;
+
+  let showAttempt;
+  if (home) {
+    showAttempt = null;
+  } else {
+    showAttempt = <p>{attempts} out of 10</p>;
+  }
 
   return (
     <div className="sideber-div">
@@ -23,9 +26,7 @@ export default ({ user, categoriesList }) => {
             <p>Welcome</p>
           </div>
           <div className="user-name">
-            <p>
-              {user.username}!
-            </p>
+            <p>{user.username}!</p>
           </div>
         </div>
         <div className="mastery-points-main-div">
@@ -37,17 +38,20 @@ export default ({ user, categoriesList }) => {
               <strong>{user.masteryPoints}</strong>
             </div>
           </div>
-          <button className="reset-button" onClick={(e) => {
-            e.preventDefault();
-            resetPoint({
-              variables: 
-                {
+          <button
+            className="reset-button"
+            onClick={(e) => {
+              e.preventDefault();
+              resetPoint({
+                variables: {
                   point: 0,
                 },
               });
-            }}>
+            }}
+          >
             Reset Points
           </button>
+          {showAttempt}
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>
