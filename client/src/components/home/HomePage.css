@@ -6,7 +6,7 @@
     padding-top: 90px;
     background: linear-gradient(315deg, rgb(31, 170, 235),
         rgb(243, 243, 195));    
-    width: 90%;
+    width: 100%;
 }
 
 .categories-list-div {
@@ -21,7 +21,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 50%;
-    margin: 5px;
 }
 
 .categories-list-left {
@@ -32,7 +31,7 @@
     margin: 10px;
     width: 95%;
     height: 25%;
-    font-size: 3.5vw;
+    font-size: 3.1vw;
     font-weight: bolder;
     letter-spacing: 10px;
     word-spacing: 20px;

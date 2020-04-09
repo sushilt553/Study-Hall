@@ -67,7 +67,7 @@
   background: #252a37;
 }
 
-.mastery-points:hover {
+.mastery-points:hover strong {
   animation: spin 6s linear infinite;
 }
 
@@ -77,10 +77,6 @@
     transform: rotate(360deg);
   }
 }
-
-/* .sidebar-categories-div {
-  border: 1px solid purple;
-} */
 
 .sidebar-categories-li {
   margin: 15px 0px 15px 0px;
