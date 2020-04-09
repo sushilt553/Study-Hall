@@ -3,7 +3,6 @@
 }
 
 .quiz-main {
-    padding: 10px;
     padding-top: 70px;
     display: flex;
     justify-content: center;
@@ -14,7 +13,7 @@
 .quiz-show-page-div {
     display: flex;
     flex-direction: column;
-    width: 98%;
+    width: 95%;
 }
 
 .quiz-toggle-category {
