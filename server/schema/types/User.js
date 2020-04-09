@@ -24,6 +24,7 @@ const typeDefs = `
         login(username: String!, password: String!): UserCredentials
         signup(username: String!, password: String!): UserCredentials
         updatePoint(point: Int): User
+        resetPoint(point: Int): User
     }
 `;
 
@@ -47,6 +48,13 @@ const resolvers = {
              if (user.masteryPoints < 0){
                  user.masteryPoints = 0;
              }
+            await user.save();
+            return user;
+        },
+        resetPoint: async(_, {point}, context) => {
+            const user = await context.user;
+            console.log(point)
+            user.masteryPoints = point;
             await user.save();
             return user;
         }

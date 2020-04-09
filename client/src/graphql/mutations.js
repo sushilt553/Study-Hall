@@ -33,3 +33,13 @@ export const UPDATE_POINT = gql`
         }
     } 
 `
+
+export const RESET_POINT = gql`
+    mutation ResetPoint($point: Int) {
+        resetPoint(point: $point) {
+            _id
+            username
+            masteryPoints
+        }
+    } 
+`
