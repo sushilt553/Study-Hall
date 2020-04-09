@@ -4,7 +4,7 @@ import { UPDATE_POINT } from "../../graphql/mutations";
 import { CURRENT_USER } from "../../graphql/queries";
 import "./CategoryShow.css";
 
-export default ({ question, option, answersList, setDisabled, disabled }) => {
+export default ({ question, option, answersList, setDisabled, disabled, attempts, setAttempts }) => {
 
     const [updatePoint, { pointLoading, pointError }] = useMutation(
         UPDATE_POINT,
@@ -43,6 +43,7 @@ export default ({ question, option, answersList, setDisabled, disabled }) => {
         }else{
             setToggle("red");
         }
+        setAttempts(attempts + 1)
     }
 
     return (

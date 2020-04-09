@@ -1,31 +1,21 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { CURRENT_USER } from "../../graphql/queries";
-import { RESET_POINT } from '../../graphql/mutations';
+import { RESET_POINT } from "../../graphql/mutations";
 import "./sidebar.css";
 
-export default ({ user, categoriesList}) => {
-
-  const [resetPoint, { pointLoading, pointError }] = useMutation(
-    RESET_POINT,
-    {
-      refetchQueries: [{ query: CURRENT_USER }],
-    }
-  );
+export default ({ user, categoriesList, attempts, home }) => {
+  const [resetPoint, { pointLoading, pointError }] = useMutation(RESET_POINT, {
+    refetchQueries: [{ query: CURRENT_USER }],
+  });
 
   if (pointLoading || pointError) return null;
 
-  let counter = 0;
-  document.querySelectorAll("[type=radio]").forEach(option => {
-    if(option.disabled) {
-      counter += 1;
-    }
-  })
-
-  let quizCategory;
-  if (document.querySelector(".quiz-category")) {
-    quizCategory = document.querySelector(".quiz-category").innerText ?
-    document.querySelector(".quiz-category").innerText : "";
+  let showAttempt;
+  if (home) {
+    showAttempt = null;
+  } else {
+    showAttempt = <strong className="attemps-counter">{attempts} out of 10</strong>;
   }
 
   return (
@@ -36,9 +26,7 @@ export default ({ user, categoriesList}) => {
             <p>Welcome</p>
           </div>
           <div className="user-name">
-            <p>
-              {user.username}!
-            </p>
+            <p>{user.username}!</p>
           </div>
         </div>
         <div className="mastery-points-main-div">
@@ -50,21 +38,20 @@ export default ({ user, categoriesList}) => {
               <strong>{user.masteryPoints}</strong>
             </div>
           </div>
-          <button className="reset-button" onClick={(e) => {
-            e.preventDefault();
-            resetPoint({
-              variables: 
-                {
+          <button
+            className="reset-button"
+            onClick={(e) => {
+              e.preventDefault();
+              resetPoint({
+                variables: {
                   point: 0,
                 },
               });
-            }}>
+            }}
+          >
             Reset Points
           </button>
-          <strong className="attemps-counter">
-            Current quiz: {quizCategory}<br></br><br></br>
-            {counter/4} out of 10
-          </strong>
+          {showAttempt}
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>
