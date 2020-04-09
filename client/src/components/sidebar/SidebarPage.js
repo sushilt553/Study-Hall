@@ -4,7 +4,7 @@ import { CURRENT_USER } from "../../graphql/queries";
 import { RESET_POINT } from '../../graphql/mutations';
 import "./sidebar.css";
 
-export default ({ user, categoriesList, attempts }) => {
+export default ({ user, categoriesList, attempts, home }) => {
   
   const [resetPoint, { pointLoading, pointError }] = useMutation(
     RESET_POINT,
@@ -14,6 +14,13 @@ export default ({ user, categoriesList, attempts }) => {
   );
 
   if (pointLoading || pointError) return null;
+
+  let showAttempt;
+  if (home) {
+    showAttempt = null;
+  }else{
+    showAttempt = <p>{attempts} out of 10</p>
+  }
 
   return (
     <div className="sideber-div">
@@ -48,7 +55,7 @@ export default ({ user, categoriesList, attempts }) => {
             }}>
             Reset Points
           </button>
-          <p>{attempts} out of 10</p>
+          {showAttempt}
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>

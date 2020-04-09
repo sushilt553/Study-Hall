@@ -4,7 +4,7 @@ import { FETCH_CATEGORIES } from "../../graphql/queries";
 import {Link} from 'react-router-dom';
 import SidebarPage from './SidebarPage';
 
-export default ({user, attempts, setAttempts}) => {
+export default ({user, attempts, setAttempts, home}) => {
 
 const { data, loading, error } = useQuery(FETCH_CATEGORIES);
 
@@ -22,6 +22,6 @@ const categoriesList = data.categories.map((category) => (
 ));
 
 return (
-    <SidebarPage user={user} categoriesList={categoriesList} attempts={attempts} />
+    <SidebarPage user={user} categoriesList={categoriesList} attempts={attempts} home={home}/>
 )
 }
