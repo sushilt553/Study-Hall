@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Option from "./Option";
 import "./CategoryShow.css";
 
-export default ({ question, answersList, shuffledOptions }) => {
+export default ({ question, answersList, shuffledOptions, attempts, setAttempts }) => {
   const [disabled, setDisabled] = useState(false);
   
   return (
@@ -14,6 +14,8 @@ export default ({ question, answersList, shuffledOptions }) => {
         <Option
           question={question}
           option={option}
+          setAttempts={setAttempts}
+          attempts={attempts}
           answersList={answersList}
           setDisabled={setDisabled}
           disabled={disabled}

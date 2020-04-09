@@ -3,7 +3,7 @@ import {useQuery} from "@apollo/react-hooks";
 import { CURRENT_USER } from '../../graphql/queries';
 import SidebarCategories from './SidebarCategories';
 
-export default () => {
+export default ({attempts, setAttempts}) => {
 
     const { data: dataR, loading: loadingR, error: errorR } = useQuery(CURRENT_USER);
 
@@ -14,6 +14,6 @@ export default () => {
     const user = dataR.me;
 
     return (
-        <SidebarCategories user={user} />
+        <SidebarCategories user={user} attempts={attempts} setAttempts={setAttempts}/>
     )
 }

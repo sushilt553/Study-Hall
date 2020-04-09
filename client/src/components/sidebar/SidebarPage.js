@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { CURRENT_USER } from "../../graphql/queries";
 import { RESET_POINT } from '../../graphql/mutations';
 import "./sidebar.css";
 
-export default ({ user, categoriesList }) => {
-
+export default ({ user, categoriesList, attempts }) => {
+  
   const [resetPoint, { pointLoading, pointError }] = useMutation(
     RESET_POINT,
     {
@@ -48,6 +48,7 @@ export default ({ user, categoriesList }) => {
             }}>
             Reset Points
           </button>
+          <p>{attempts} out of 10</p>
         </div>
         <div className="sidebar-categories-div">
           <ul className="sidebar-categories-ul">{categoriesList}</ul>
