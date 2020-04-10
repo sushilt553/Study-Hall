@@ -15,11 +15,13 @@ export default ({ user, categoriesList, attempts, home }) => {
   if (home) {
     showAttempt = null;
   } else {
-    showAttempt = <strong className="attemps-counter">{attempts} out of 10</strong>;
+    showAttempt = (
+      <strong className="attemps-counter">{attempts} out of 10</strong>
+    );
   }
 
   return (
-    <div className="sideber-div">
+    <div className="sidebar-div">
       <div className="sidebar-details">
         <div className="user-name-div">
           <div className="welcome-div">
