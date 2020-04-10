@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {useMutation} from '@apollo/react-hooks';
 import { UPDATE_POINT } from "../../graphql/mutations";
 import { CURRENT_USER } from "../../graphql/queries";
+import sound from './sound';
 import "./CategoryShow.css";
 
 export default ({ question, option, answersList, setDisabled, disabled, attempts, setAttempts }) => {
@@ -14,7 +15,8 @@ export default ({ question, option, answersList, setDisabled, disabled, attempts
     );
 
     if (pointLoading || pointError) return null;
-
+    
+    
     function checkAnswer(questionId, answer, answersList) {
         if (answersList[questionId] === answer) {
             setDisabled(true);
@@ -23,6 +25,7 @@ export default ({ question, option, answersList, setDisabled, disabled, attempts
                     point: 10,
                 },
             });
+            
             return true;
         } else {
             setDisabled(true);
@@ -37,11 +40,14 @@ export default ({ question, option, answersList, setDisabled, disabled, attempts
     
     const [toggle, setToggle] = useState("");
     // let toggle;
+    
     function clickHandler(){
         if (checkAnswer(question._id, option.title, answersList)){
             setToggle("green");
+            sound("right");
         }else{
             setToggle("red");
+            sound("wrong");
         }
         setAttempts(attempts + 1)
     }

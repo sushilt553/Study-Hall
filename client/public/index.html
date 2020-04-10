@@ -23,7 +23,23 @@
     <title>Study Hall</title>
   </head>
   <body>
+    <audio id="correct-answer" class="sound">
+      <source src="Correct_Answer.wav"/>
+    </audio>
+    <audio id="wrong-answer" class="sound">
+      <source src="Wrong_Answer.wav"/>
+    </audio>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
+  <script>
+    function muteAudio(){
+        els = document.getElementsByClassName('sound');
+        for (var j = 0; j < els.length; j++) {
+          els[j].muted = true;
+        }
+      }
+    const mute = document.getElementById("mute-button")
+    mute.addEventListener('click', function() {muteAudio()})
+  </script>
 </html>

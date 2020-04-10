@@ -20,19 +20,19 @@ export default ({questions, answersList, category}) => {
     ));
 
     return (
-        <div className="category-container">
-            <SideBar attempts={attempts} setAttempts={setAttempts} />
-            <section className="quiz-main">
-                <div className="quiz-show-page-div">
-                    <div className="quiz-toggle-category">
-                        <h1 className="quiz-category">{category}</h1>
-                    </div>
-                    <div className="quiz-order-list-div">
-                        <ol className="quiz-order-list">{questionsList}</ol>
-                    </div>
-                </div>
-            </section>
-        </div>
+      <div className="category-container">
+        <SideBar attempts={attempts} setAttempts={setAttempts} />
+        <section className="quiz-main">
+          <div className="quiz-show-page-div">
+            <div className="quiz-toggle-category">
+              <h1 className="quiz-category">{category}</h1>
+            </div>
+            <div className="quiz-order-list-div">
+              <ol className="quiz-order-list">{questionsList}</ol>
+            </div>
+          </div>
+        </section>
+      </div>
     );
 
 }

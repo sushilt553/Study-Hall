@@ -46,7 +46,10 @@ export default () => {
       <Link to={`/home`}>
         <img className="logo" src={Logo} alt="logo" />
       </Link>
-      {buttons}
+      <div className="mute-div">
+        <button id="mute-button">Mute</button>
+        {buttons}
+      </div>
     </header>
   );
 };
