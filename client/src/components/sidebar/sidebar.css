@@ -33,7 +33,7 @@
     flex-direction: column;
     text-align: center;
     width: 100%;
-    height: 30vh;
+    height: 35vh;
     font-size: 1.45vw;
 }
 
@@ -87,17 +87,34 @@
 }
 
 .reset-button {
+  font-size: 1.2vw;
+  padding: 5px 10px 5px 10px;
   font-weight: bold;
   margin-top: 5px;
   outline: none;
+  background: rgb(236, 175, 175);
+  color: red;
+  border-radius: 5px;
+  letter-spacing: 0.1em;
 }
 
 .reset-button:hover {
-    color: #28a5dc;
+    color: black;
 }
 
 .attempts-counter {
   font-size: 1.45vw;
   font-weight: bold;
   margin-top: 3vh;
+  color: #ed851e;
+}
+
+.att-nm {
+    font-size: 1.9vw;
+    color: black;
+}
+
+.ten {
+    font-size: 1.9vw;
+    color: black;
 }

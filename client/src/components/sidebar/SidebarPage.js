@@ -16,7 +16,12 @@ export default ({ user, categoriesList, attempts, home }) => {
     showAttempt = null;
   } else {
     showAttempt = (
-      <strong className="attempts-counter">{attempts} out of 10</strong>
+      <>
+        <strong className="attempts-counter">
+          Attempted <span className="att-nm">{attempts} </span> 
+          out of <span className="ten">10</span> Questions
+        </strong>
+      </>
     );
   }
 
@@ -40,19 +45,21 @@ export default ({ user, categoriesList, attempts, home }) => {
               <strong>{user.masteryPoints}</strong>
             </div>
           </div>
-          <button
-            className="reset-button"
-            onClick={(e) => {
-              e.preventDefault();
-              resetPoint({
-                variables: {
-                  point: 0,
-                },
-              });
-            }}
-          >
-            Reset Points
-          </button>
+          <div className="reset-button-div">
+            <button
+              className="reset-button"
+              onClick={(e) => {
+                e.preventDefault();
+                resetPoint({
+                  variables: {
+                    point: 0,
+                  },
+                });
+              }}
+            >
+              Reset Points
+            </button>
+          </div>
           {showAttempt}
         </div>
         <div className="sidebar-categories-div">
