@@ -1,10 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { CURRENT_USER } from "../../graphql/queries";
 import { RESET_POINT } from "../../graphql/mutations";
 import "./sidebar.css";
 
 export default ({ user, categoriesList, attempts, home }) => {
+
+  const [refresh, setRefresh] = useState(0);
+
+  let icon = <i className="fas fa-volume-up"></i>;
+
+  const soundCheck = document.getElementsByClassName("sound")[0];
+
+  if (soundCheck.muted) {
+    icon = <i className="fas fa-volume-mute"></i>;
+  } else {
+    icon = <i className ="fas fa-volume-up"></i>;
+  }
+
+  function muteAudio() {
+    const els = document.getElementsByClassName("sound");
+    for (var j = 0; j < els.length; j++) {
+      if (els[j].muted){
+        els[j].muted = false;
+      }else{
+        els[j].muted = true;
+      }
+    }
+    setRefresh(refresh + 1);
+  }
+  
   const [resetPoint, { pointLoading, pointError }] = useMutation(RESET_POINT, {
     refetchQueries: [{ query: CURRENT_USER }],
   });
@@ -59,6 +84,14 @@ export default ({ user, categoriesList, attempts, home }) => {
             >
               Reset Points
             </button>
+            {!home ? 
+            <button id="volume-up" onClick={() => muteAudio()}>
+              {icon}
+            </button>
+            :
+            null
+            }
+            <p className="refresh-mute">{refresh}</p>
           </div>
           {showAttempt}
         </div>
