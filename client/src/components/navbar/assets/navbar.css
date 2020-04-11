@@ -42,16 +42,3 @@
     color: #28a5dc;
 }
 
-.mute-div{
-    display: flex;
-}
-
-#mute-button {
-    margin-right: 10px;
-    color: white;
-}
-
-#mute-button:hover {
-    color: red;
-    text-decoration: line-through;
-}
