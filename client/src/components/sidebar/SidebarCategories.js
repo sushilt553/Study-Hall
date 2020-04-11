@@ -11,23 +11,23 @@ export default ({user, attempts, setAttempts, home}) => {
     if (!data || loading || error) return null;
 
 const categoriesList = data.categories.map((category) => (
-    <li className="sidebar-categories-li" key={category._id}>
-        {home ?
-        <Link
-            className="sidebar-categories-link"
-            to={`/category/${category._id}`}
-        >
-            <strong>{category.name}</strong>
-        </Link>
-        :
-        <Link
-            className="sidebar-categories-link"
-            to={`/category/${category._id}`}
-        >
-            <strong onClick={() => setAttempts(0)}>{category.name}</strong>
-        </Link>
-        }
-    </li>
+  <li className="sidebar-categories-li" key={category._id}>
+    {home ? (
+      <Link
+        className="sidebar-categories-link"
+        to={`/category/${category._id}`}
+      >
+        <strong>{category.name}</strong>
+      </Link>
+    ) : (
+      <Link
+        className="sidebar-categories-link"
+        to={`/category/${category._id}`}
+      >
+        <strong onClick={() => setAttempts(0)}>{category.name}</strong>
+      </Link>
+    )}
+  </li>
 ));
 
 return (
