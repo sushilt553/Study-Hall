@@ -6,17 +6,19 @@ import "./sidebar.css";
 
 export default ({ user, categoriesList, attempts, home }) => {
 
-  const [icon, setIcon] = useState(<i className="fas fa-volume-up"></i>)
-  const [newStatus, setStatus] = useState(false);
+  const [refresh, setRefresh] = useState(0);
 
-  function muteAudio(status) {
-    if (status) {
-      setIcon(<i className="fas fa-volume-up"></i>);
-      setStatus(false);
-    }else{
-      setIcon(<i className="fas fa-volume-mute"></i>);
-      setStatus(true);
-    }
+  let icon = <i className="fas fa-volume-up"></i>;
+
+  const soundCheck = document.getElementsByClassName("sound")[0];
+
+  if (soundCheck.muted) {
+    icon = <i className="fas fa-volume-mute"></i>;
+  } else {
+    icon = <i className ="fas fa-volume-up"></i>;
+  }
+
+  function muteAudio() {
     const els = document.getElementsByClassName("sound");
     for (var j = 0; j < els.length; j++) {
       if (els[j].muted){
@@ -25,6 +27,7 @@ export default ({ user, categoriesList, attempts, home }) => {
         els[j].muted = true;
       }
     }
+    setRefresh(refresh + 1);
   }
   
   const [resetPoint, { pointLoading, pointError }] = useMutation(RESET_POINT, {
@@ -82,12 +85,13 @@ export default ({ user, categoriesList, attempts, home }) => {
               Reset Points
             </button>
             {!home ? 
-            <button id="volume-up" onClick={() => muteAudio(newStatus)}>
+            <button id="volume-up" onClick={() => muteAudio()}>
               {icon}
             </button>
             :
             null
             }
+            <p className="refresh-mute">{refresh}</p>
           </div>
           {showAttempt}
         </div>

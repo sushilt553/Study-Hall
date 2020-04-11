@@ -127,3 +127,7 @@
 .fa-volume-mute {
     color: red;
 }
+
+.refresh-mute {
+    display: none;
+}
