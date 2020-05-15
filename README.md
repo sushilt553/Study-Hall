@@ -7,6 +7,13 @@ This website is inspired by [Brainscape](https://www.brainscape.com/).
 
 [Live-Site](http://study-hall.herokuapp.com/)
 
+## Creators
+[Sushil Thapa](https://github.com/sushilt553)
+
+[Kadeem Jackson](https://github.com/Cro5s)
+
+[Rapkat Amin](https://github.com/rapkat10)
+
 ![Study-Hall](https://github.com/sushilt553/Study-Hall/blob/master/client/assets/Home_page.png)
 
 ## Features
